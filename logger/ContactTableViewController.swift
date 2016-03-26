@@ -10,18 +10,6 @@ import UIKit
 
 class ContactTableViewController: UITableViewController {
 
-    enum Info {
-        case CallSign
-        case QSOTime
-        case Band
-        case Frequency
-        case Mode
-        case Power
-        case TXRst
-        case RXRst
-        case 
-        
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
