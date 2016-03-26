@@ -156,10 +156,10 @@
             </objects>
             <point key="canvasLocation" x="1332" y="-75"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Contact Table View Controller-->
         <scene sceneID="aQP-tH-Atc">
             <objects>
-                <tableViewController id="wOy-fw-XiT" sceneMemberID="viewController">
+                <tableViewController id="wOy-fw-XiT" customClass="ContactTableViewController" customModule="logger" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="tF8-Bh-Qzq">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -223,6 +223,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="wOy-fw-XiT" kind="showDetail" id="ejO-Wd-kk6"/>
+                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W7b-hY-eLI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
