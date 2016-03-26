@@ -15,6 +15,7 @@
 		D072DEB51CA4D867008DA1D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D072DEB31CA4D867008DA1D6 /* LaunchScreen.storyboard */; };
 		D072DEC01CA4D867008DA1D6 /* loggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D072DEBF1CA4D867008DA1D6 /* loggerTests.swift */; };
 		D072DECB1CA4D867008DA1D6 /* loggerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D072DECA1CA4D867008DA1D6 /* loggerUITests.swift */; };
+		D072DED91CA62ADE008DA1D6 /* ContactTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D072DED81CA62ADE008DA1D6 /* ContactTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		D072DEC61CA4D867008DA1D6 /* loggerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = loggerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D072DECA1CA4D867008DA1D6 /* loggerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loggerUITests.swift; sourceTree = "<group>"; };
 		D072DECC1CA4D867008DA1D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D072DED81CA62ADE008DA1D6 /* ContactTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				D072DEA71CA4D867008DA1D6 /* AppDelegate.swift */,
 				D072DEA91CA4D867008DA1D6 /* ViewController.swift */,
 				D072DEAB1CA4D867008DA1D6 /* Main.storyboard */,
+				D072DED81CA62ADE008DA1D6 /* ContactTableViewController.swift */,
 				D072DEB11CA4D867008DA1D6 /* Assets.xcassets */,
 				D072DEB31CA4D867008DA1D6 /* LaunchScreen.storyboard */,
 				D072DEB61CA4D867008DA1D6 /* Info.plist */,
@@ -259,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D072DED91CA62ADE008DA1D6 /* ContactTableViewController.swift in Sources */,
 				D072DEB01CA4D867008DA1D6 /* logger.xcdatamodeld in Sources */,
 				D072DEAA1CA4D867008DA1D6 /* ViewController.swift in Sources */,
 				D072DEA81CA4D867008DA1D6 /* AppDelegate.swift in Sources */,
