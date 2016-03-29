@@ -10,7 +10,7 @@ import UIKit
 
 class ContactTableViewController: UITableViewController {
 
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -24,7 +24,7 @@ class ContactTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -32,15 +32,42 @@ class ContactTableViewController: UITableViewController {
         return 8
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        //let cell = tableView.dequeueReusableCellWithIdentifier("callCell", forIndexPath: indexPath)
+        
+        if indexPath.row == 0 {
+            let cell:UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "callCell")
+            return cell
+        } else if indexPath.row == 1 {
+            let cell:UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "timeCell")
+            return cell
+        } else if indexPath.row == 2 {
+            let cell:UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "bandCell")
+            return cell
+        } else if indexPath.row == 3 {
+            let cell:UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "contestCell")
+            return cell
+        } else if indexPath.row == 4 {
+            let cell:UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "modeCell")
+            return cell
+        } else if indexPath.row == 5 {
+            let cell:UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "infoTxCell")
+            return cell
+        } else if indexPath.row == 6 {
+            let cell:UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "infoRxCell")
+            return cell
+        } else if indexPath.row == 7 {
+            let cell:UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "commentCell")
+            return cell
+        }
 
-        // Configure the cell...
 
-        return cell
-    }
-    */
+
+
+
+
+    
 
     /*
     // Override to support conditional editing of the table view.
