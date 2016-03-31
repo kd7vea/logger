@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ContactTableViewController: UITableViewController {
 
@@ -14,6 +15,31 @@ class ContactTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    @IBOutlet weak var callSign: UITextField!
+    @IBOutlet weak var qsoTime: UITextField!
+    @IBOutlet weak var band: UITextField!
+    @IBOutlet weak var frequency: UITextField!
+    @IBOutlet weak var contest: UITextField!
+    @IBOutlet weak var arrlSect: UITextField!
+    @IBOutlet weak var arrlClass: UITextField!
+    @IBOutlet weak var mode: UITextField!
+    @IBOutlet weak var power: UITextField!
+    @IBOutlet weak var txRst: UITextField!
+    @IBOutlet weak var rxRst: UITextField!
+    @IBOutlet weak var infoTx: UITextField!
+    @IBOutlet weak var txSerial: UITextField!
+    @IBOutlet weak var infoRx: UITextField!
+    @IBOutlet weak var rxSerial: UITextField!
+    @IBOutlet weak var comments: UITextView!
+    
+    
+    @IBAction func saveButton(sender: AnyObject) {
+        let appDel:AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
+        let NSManagedObjectContext = appDel.managedObjectContext
+        
+    }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -31,10 +57,11 @@ class ContactTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return 8
     }
-
     
+   
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         //let cell = tableView.dequeueReusableCellWithIdentifier("callCell", forIndexPath: indexPath)
+    
         
         if indexPath.row == 0 {
             let cell:UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "callCell")
@@ -62,13 +89,39 @@ class ContactTableViewController: UITableViewController {
             return cell
         }
 
-
-
-
-
-
-    
-
+    }
+        
+        
+        
+        
+    /*
+        if indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCellWithIdentifier("callCell")!
+            return cell
+        } else if indexPath.row == 1 {
+           let cell = tableView.dequeueReusableCellWithIdentifier("timeCell")!
+            return cell
+        } else if indexPath.row == 2 {
+            let cell = tableView.dequeueReusableCellWithIdentifier("bandCell")!
+            return cell
+        } else if indexPath.row == 3 {
+            let cell = tableView.dequeueReusableCellWithIdentifier("contestCell")!
+            return cell
+        } else if indexPath.row == 4 {
+            let cell = tableView.dequeueReusableCellWithIdentifier("modeCell")!
+            return cell
+        } else if indexPath.row == 5 {
+            let cell = tableView.dequeueReusableCellWithIdentifier("infoTxCell")!
+            return cell
+        } else if indexPath.row == 6 {
+            let cell = tableView.dequeueReusableCellWithIdentifier("infoRxCell")!
+            return cell
+        } else if indexPath.row == 7 {
+            let cell = tableView.dequeueReusableCellWithIdentifier("commentCell")!
+            return cell
+        }
+    }
+*/
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
