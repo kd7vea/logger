@@ -17,14 +17,16 @@ class LogTableViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-    @IBOutlet weak var CallSign: UITextField!
-    @IBOutlet weak var Band: UITextField!
-    @IBOutlet weak var DateTime: UITextField!
-    @IBOutlet weak var Comments: UITextView!
-    
-    
+        
 
+    
+    @IBOutlet weak var callSign: UITextField!
+    @IBOutlet weak var band: UITextField!
+    @IBOutlet weak var time: UITextField!
+    @IBOutlet weak var comments: UITextView!
+    
+    
+    
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -34,7 +36,7 @@ class LogTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 5
+        return 1
         
     }
 

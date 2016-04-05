@@ -9,12 +9,12 @@
         <scene sceneID="ANZ-aH-Prh">
             <objects>
                 <tableViewController clearsSelectionOnViewWillAppear="NO" id="l0n-2o-Hp8" customClass="LogTableViewController" customModule="logger" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="129" sectionHeaderHeight="28" sectionFooterHeight="28" id="yBS-yp-jXc">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="177" sectionHeaderHeight="28" sectionFooterHeight="28" id="yBS-yp-jXc">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="logCell" rowHeight="129" id="Buh-0n-QDr">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="logCell" rowHeight="177" id="Buh-0n-QDr">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Buh-0n-QDr" id="HC6-ad-dEl">
@@ -39,12 +39,47 @@
                                                 <rect key="frame" x="8" y="41" width="42" height="21"/>
                                             </variation>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="comments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qaY-QP-hgo">
+                                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="heightClass=regular" fixedFrame="YES">
+                                                <rect key="frame" x="2" y="111" width="84" height="21"/>
+                                            </variation>
+                                        </label>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x8v-ra-bxs">
                                             <rect key="frame" x="-25" y="-30" width="97" height="30"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                             <variation key="heightClass=regular" fixedFrame="YES">
                                                 <rect key="frame" x="79" y="4" width="97" height="30"/>
+                                            </variation>
+                                        </textField>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="AHc-Vx-yEA">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            <variation key="heightClass=regular" fixedFrame="YES">
+                                                <rect key="frame" x="94" y="111" width="214" height="43"/>
+                                            </variation>
+                                        </textView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QSO Date/Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ECn-k2-1I5">
+                                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="heightClass=regular" fixedFrame="YES">
+                                                <rect key="frame" x="8" y="75" width="123" height="21"/>
+                                            </variation>
+                                        </label>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ojI-Uf-1XE">
+                                            <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <variation key="heightClass=regular" fixedFrame="YES">
+                                                <rect key="frame" x="139" y="71" width="169" height="30"/>
                                             </variation>
                                         </textField>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZNX-8c-p6b">
@@ -55,64 +90,29 @@
                                                 <rect key="frame" x="79" y="37" width="97" height="30"/>
                                             </variation>
                                         </textField>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="AHc-Vx-yEA">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            <variation key="heightClass=regular" fixedFrame="YES">
-                                                <rect key="frame" x="93" y="75" width="499" height="43"/>
-                                            </variation>
-                                        </textView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QSO Date/Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ECn-k2-1I5">
-                                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                            <variation key="heightClass=regular" fixedFrame="YES">
-                                                <rect key="frame" x="222" y="41" width="123" height="21"/>
-                                            </variation>
-                                        </label>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ojI-Uf-1XE">
-                                            <rect key="frame" x="-25" y="-30" width="97" height="30"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                            <variation key="heightClass=regular" fixedFrame="YES">
-                                                <rect key="frame" x="359" y="37" width="233" height="30"/>
-                                            </variation>
-                                        </textField>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="comments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qaY-QP-hgo">
-                                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                            <variation key="heightClass=regular" fixedFrame="YES">
-                                                <rect key="frame" x="2" y="81" width="84" height="21"/>
-                                            </variation>
-                                        </label>
                                     </subviews>
                                     <variation key="default">
                                         <mask key="subviews">
                                             <exclude reference="sPe-Cl-kuW"/>
                                             <exclude reference="c3v-WK-4dU"/>
+                                            <exclude reference="qaY-QP-hgo"/>
                                             <exclude reference="x8v-ra-bxs"/>
-                                            <exclude reference="ZNX-8c-p6b"/>
                                             <exclude reference="AHc-Vx-yEA"/>
                                             <exclude reference="ECn-k2-1I5"/>
                                             <exclude reference="ojI-Uf-1XE"/>
-                                            <exclude reference="qaY-QP-hgo"/>
+                                            <exclude reference="ZNX-8c-p6b"/>
                                         </mask>
                                     </variation>
                                     <variation key="heightClass=regular">
                                         <mask key="subviews">
                                             <include reference="sPe-Cl-kuW"/>
                                             <include reference="c3v-WK-4dU"/>
+                                            <include reference="qaY-QP-hgo"/>
                                             <include reference="x8v-ra-bxs"/>
-                                            <include reference="ZNX-8c-p6b"/>
                                             <include reference="AHc-Vx-yEA"/>
                                             <include reference="ECn-k2-1I5"/>
                                             <include reference="ojI-Uf-1XE"/>
-                                            <include reference="qaY-QP-hgo"/>
+                                            <include reference="ZNX-8c-p6b"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
@@ -125,15 +125,15 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="LOGBOOK" id="FWw-bc-YSo"/>
                     <connections>
-                        <outlet property="band" destination="ojI-Uf-1XE" id="UOj-tp-tWj"/>
-                        <outlet property="callSign" destination="x8v-ra-bxs" id="njm-qY-74g"/>
-                        <outlet property="comments" destination="AHc-Vx-yEA" id="cav-ey-yGA"/>
-                        <outlet property="dateTime" destination="ojI-Uf-1XE" id="N8k-S9-JP3"/>
+                        <outlet property="band" destination="ZNX-8c-p6b" id="FqS-29-LxI"/>
+                        <outlet property="callSign" destination="x8v-ra-bxs" id="GBC-f5-9rd"/>
+                        <outlet property="comments" destination="AHc-Vx-yEA" id="B3q-Mk-0Uh"/>
+                        <outlet property="time" destination="ojI-Uf-1XE" id="XVd-sR-b7u"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fm9-Z1-yHd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1332" y="-273"/>
+            <point key="canvasLocation" x="1312" y="-369"/>
         </scene>
         <!--New Contact-->
         <scene sceneID="aQP-tH-Atc">
@@ -439,7 +439,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vic-M9-ycn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1342" y="700"/>
+            <point key="canvasLocation" x="1342" y="699.75"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ehz-iL-Dim">
