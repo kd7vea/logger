@@ -20,10 +20,6 @@ class LogTableViewController: UITableViewController {
         
 
     
-    @IBOutlet weak var callSign: UITextField!
-    @IBOutlet weak var band: UITextField!
-    @IBOutlet weak var time: UITextField!
-    @IBOutlet weak var comments: UITextView!
     
     
     
