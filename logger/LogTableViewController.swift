@@ -1,53 +1,54 @@
 //
-//  ContactTableViewController.swift
+//  LogTableViewController.swift
 //  logger
 //
-//  Created by Jake Estepp on 3/25/16.
+//  Created by Jake Estepp on 4/4/16.
 //  Copyright © 2016 Jake Estepp. All rights reserved.
 //
 
 import UIKit
-import CoreData
 
-class ContactTableViewController: UITableViewController {
+class LogTableViewController: UITableViewController {
 
-        
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    }
+    
+    @IBOutlet weak var CallSign: UITextField!
+    @IBOutlet weak var Band: UITextField!
+    @IBOutlet weak var DateTime: UITextField!
+    @IBOutlet weak var Comments: UITextView!
+    
+    
+
+    // MARK: - Table view data source
+
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return 5
+        
     }
 
     
-    @IBOutlet weak var callSign: UITextField!
-    @IBOutlet weak var qsoTime: UITextField!
-    @IBOutlet weak var band: UITextField!
-    @IBOutlet weak var frequency: UITextField!
-    @IBOutlet weak var contest: UITextField!
-    @IBOutlet weak var arrlSect: UITextField!
-    @IBOutlet weak var arrlClass: UITextField!
-    @IBOutlet weak var mode: UITextField!
-    @IBOutlet weak var power: UITextField!
-    @IBOutlet weak var txRst: UITextField!
-    @IBOutlet weak var rxRst: UITextField!
-    @IBOutlet weak var infoTx: UITextField!
-    @IBOutlet weak var txSerial: UITextField!
-    @IBOutlet weak var infoRx: UITextField!
-    @IBOutlet weak var rxSerial: UITextField!
-    @IBOutlet weak var comments: UITextView!
-    
-    
-    @IBAction func saveButton(sender: AnyObject) {
-        let appDel:AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
-        let NSManagedObjectContext = appDel.managedObjectContext
-        
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("logCell", forIndexPath: indexPath)
+
+        // Configure the cell...
+
+        return cell
     }
     
-   
-     /*
+
+    /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.

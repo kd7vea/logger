@@ -16,6 +16,9 @@
 		D072DEC01CA4D867008DA1D6 /* loggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D072DEBF1CA4D867008DA1D6 /* loggerTests.swift */; };
 		D072DECB1CA4D867008DA1D6 /* loggerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D072DECA1CA4D867008DA1D6 /* loggerUITests.swift */; };
 		D072DED91CA62ADE008DA1D6 /* ContactTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D072DED81CA62ADE008DA1D6 /* ContactTableViewController.swift */; };
+		D072DEDE1CACC30B008DA1D6 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D072DEDC1CACC30B008DA1D6 /* Model.xcdatamodeld */; };
+		D072DEE01CACC968008DA1D6 /* entryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D072DEDF1CACC968008DA1D6 /* entryController.swift */; };
+		D072DEE21CB365EC008DA1D6 /* LogTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D072DEE11CB365EC008DA1D6 /* LogTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,9 @@
 		D072DECA1CA4D867008DA1D6 /* loggerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loggerUITests.swift; sourceTree = "<group>"; };
 		D072DECC1CA4D867008DA1D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D072DED81CA62ADE008DA1D6 /* ContactTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTableViewController.swift; sourceTree = "<group>"; };
+		D072DEDD1CACC30B008DA1D6 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		D072DEDF1CACC968008DA1D6 /* entryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = entryController.swift; sourceTree = "<group>"; };
+		D072DEE11CB365EC008DA1D6 /* LogTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +110,10 @@
 				D072DEA71CA4D867008DA1D6 /* AppDelegate.swift */,
 				D072DEA91CA4D867008DA1D6 /* ViewController.swift */,
 				D072DEAB1CA4D867008DA1D6 /* Main.storyboard */,
+				D072DEDF1CACC968008DA1D6 /* entryController.swift */,
 				D072DED81CA62ADE008DA1D6 /* ContactTableViewController.swift */,
+				D072DEE11CB365EC008DA1D6 /* LogTableViewController.swift */,
+				D072DEDC1CACC30B008DA1D6 /* Model.xcdatamodeld */,
 				D072DEB11CA4D867008DA1D6 /* Assets.xcassets */,
 				D072DEB31CA4D867008DA1D6 /* LaunchScreen.storyboard */,
 				D072DEB61CA4D867008DA1D6 /* Info.plist */,
@@ -262,8 +271,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D072DEE01CACC968008DA1D6 /* entryController.swift in Sources */,
 				D072DED91CA62ADE008DA1D6 /* ContactTableViewController.swift in Sources */,
 				D072DEB01CA4D867008DA1D6 /* logger.xcdatamodeld in Sources */,
+				D072DEE21CB365EC008DA1D6 /* LogTableViewController.swift in Sources */,
+				D072DEDE1CACC30B008DA1D6 /* Model.xcdatamodeld in Sources */,
 				D072DEAA1CA4D867008DA1D6 /* ViewController.swift in Sources */,
 				D072DEA81CA4D867008DA1D6 /* AppDelegate.swift in Sources */,
 			);
@@ -519,6 +531,16 @@
 			);
 			currentVersion = D072DEAF1CA4D867008DA1D6 /* logger.xcdatamodel */;
 			path = logger.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		D072DEDC1CACC30B008DA1D6 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D072DEDD1CACC30B008DA1D6 /* Model.xcdatamodel */,
+			);
+			currentVersion = D072DEDD1CACC30B008DA1D6 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

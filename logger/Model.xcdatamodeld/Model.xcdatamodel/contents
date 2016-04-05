@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15E65" minimumToolsVersion="Xcode 7.0">
+    <entity name="LogEntry" syncable="YES">
+        <attribute name="arrlClass" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="arrlSect" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="band" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="callSign" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="comments" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="contest" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="frequency" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="infoRx" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="infoTx" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="power" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="qsoTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="rxRst" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rxSerial" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="txRst" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="txSerial" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="LogEntry" positionX="-63" positionY="-18" width="128" height="285"/>
+    </elements>
+</model>
