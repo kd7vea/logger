@@ -71,7 +71,7 @@ class Entry: Equatable {
             let timestamp = dictionary[timeKey] as? NSData,
             let band = dictionary[bandKey] as? String,
             let frequency = dictionary[frequencyKey] as? String,
-            let _ = dictionary[contestKey] as? String,
+            let contest = dictionary[contestKey] as? String,
             let arrlSect = dictionary[arrlSectKey] as? String,
             let arrlClass = dictionary[arrlClassKey] as? String,
             let mode = dictionary[modeKey] as? String,
@@ -108,23 +108,39 @@ class Entry: Equatable {
                 return nil
         }
         self.call = call
-        self.timestamp = timestamp
+        self.timestamp = NSDate()
         self.band = band
         self.frequency = frequency
-        
-    }
+        self.contest = contest
+        self.arrlSect = arrlSect
+        self.arrlClass = arrlClass
+        self.mode = mode
+        self.power = power
+        self.txRst = txRst
+        self.rxRst = rxRst
+        self.infoTx = infoTx
+        self.txSerial = txSerial
+        self.infoRx = infoRx
+        self.rxSerial = rxSerial
+        self.comments = comments
+        }
     
-    func dictionaryCopy() -> Dictionary<String, AnyObject> {
+  /*  func dictionaryCopy() -> Dictionary<String, AnyObject> {
         
         let dictionary = [
-            calllSignKey : self.timestamp,
-            titleKey : self.title,
-            textKey : self.text
+            callSignKey : self.callSign,
+            timestampKey : self.timyestamp,
+            bandKey : self.band,
+            frequencyKey : self.frequency,
+            contestKey : self.contest,
+            arrlSectKey : self.arrlSect,
+            arrlClassKey : self.arrlClass,
+            modeKey : self.mode
         ]
         
         return dictionary
     }
-    
+    */
 }
 
 func == (lhs: Entry, rhs: Entry) -> Bool {
