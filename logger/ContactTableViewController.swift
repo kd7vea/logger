@@ -12,14 +12,7 @@ import CoreData
 class ContactTableViewController: UITableViewController {
 
         
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+   
 
     
     @IBOutlet weak var callSign: UITextField!
@@ -39,10 +32,28 @@ class ContactTableViewController: UITableViewController {
     @IBOutlet weak var rxSerial: UITextField!
     @IBOutlet weak var comments: UITextView!
     
+    @IBAction func saveButton(sender: AnyObject) {
+        
+        
+    }
+    
+    
+    var calls = [String]()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = "\"New Contact\""
+        tableView.registerClass(UITableViewCell.self,forCellReuseIdentifier: "callCell")
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+    
     
     @IBAction func saveButton(sender: AnyObject) {
-        let appDel:AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
-        let NSManagedObjectContext = appDel.managedObjectContext
         
     }
     
