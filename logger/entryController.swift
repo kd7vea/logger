@@ -8,64 +8,17 @@
 
 
 import Foundation
+import CoreData
 
-class Entry: Equatable {
-    
-    private let callSignKey = "call"
-    private let timeKey = "timestamp"
-    private let bandKey = "band"
-    private let frequencyKey = "frequency"
-    private let contestKey = "contest"
-    private let arrlSectKey = "arrlSect"
-    private let arrlClassKey = "arrlClass"
-    private let modeKey = "mode"
-    private let powerKey = "power"
-    private let txRstKey = "txRst"
-    private let rxRstKey = "rxRst"
-    private let infoTxKey = "infoTx"
-    private let txSerialKey = "txSerial"
-    private let infoRxKey = "infoRx"
-    private let rxSerialKey = "rxSerial"
-    private let commentsKey = "comments"
-    
-    var call:String
-    var timestamp: NSDate
-    var band: String
-    var frequency: String
-    var contest:String
-    var arrlSect:String
-    var arrlClass:String
-    var mode:String
-    var power:String
-    var txRst:String
-    var rxRst:String
-    var infoTx:String
-    var txSerial:String
-    var infoRx:String
-    var rxSerial:String
-    var comments:String
-    
-    
-    init(call: String, timestamp: NSDate = NSDate(), band: String, frequency: String, contest: String, arrlSect: String, arrlClass: String, mode: String, power: String, txRst: String, rxRst: String, infoTx: String, txSerial: String, infoRx: String, rxSerial: String, comments: String) {
+    @objc(Task)
+    class entry: NSManagedObject {
         
-        self.call = call
-        self.timestamp = timestamp
-        self.band = band
-        self.frequency = frequency
-        self.contest = contest
-        self.arrlSect = arrlSect
-        self.arrlClass = arrlClass
-        self.mode = mode
-        self.power = power
-        self.txRst = txRst
-        self.rxRst = rxRst
-        self.infoTx = infoTx
-        self.txSerial = txSerial
-        self.infoRx = infoRx
-        self.rxSerial = rxSerial
-        self.comments = comments
     }
+
     
+    
+       
+   /*
     init?(dictionary: Dictionary<String, AnyObject>) {
         guard let call = dictionary[callSignKey] as? String,
             let timestamp = dictionary[timeKey] as? NSData,
@@ -107,6 +60,7 @@ class Entry: Equatable {
                 
                 return nil
         }
+ 
         self.call = call
         self.timestamp = NSDate()
         self.band = band
@@ -124,25 +78,5 @@ class Entry: Equatable {
         self.rxSerial = rxSerial
         self.comments = comments
         }
-    
-  /*  func dictionaryCopy() -> Dictionary<String, AnyObject> {
-        
-        let dictionary = [
-            callSignKey : self.callSign,
-            timestampKey : self.timyestamp,
-            bandKey : self.band,
-            frequencyKey : self.frequency,
-            contestKey : self.contest,
-            arrlSectKey : self.arrlSect,
-            arrlClassKey : self.arrlClass,
-            modeKey : self.mode
-        ]
-        
-        return dictionary
-    }
-    */
-}
+ */
 
-func == (lhs: Entry, rhs: Entry) -> Bool {
-    return ObjectIdentifier(lhs) == ObjectIdentifier(rhs)
-}

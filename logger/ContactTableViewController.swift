@@ -33,8 +33,6 @@ class ContactTableViewController: UITableViewController {
     @IBOutlet weak var comments: UITextView!
     
     @IBAction func saveButton(sender: AnyObject) {
-        
-        
     }
     
     
