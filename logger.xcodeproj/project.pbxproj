@@ -19,6 +19,9 @@
 		D072DEDE1CACC30B008DA1D6 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D072DEDC1CACC30B008DA1D6 /* Model.xcdatamodeld */; };
 		D072DEE01CACC968008DA1D6 /* entryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D072DEDF1CACC968008DA1D6 /* entryController.swift */; };
 		D072DEE21CB365EC008DA1D6 /* LogTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D072DEE11CB365EC008DA1D6 /* LogTableViewController.swift */; };
+		D0F03DE31CB5F0DD0004E4E7 /* LogBookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F03DE21CB5F0DD0004E4E7 /* LogBookTableViewCell.swift */; };
+		D0F03DE61CB5F3910004E4E7 /* LogEntry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F03DE41CB5F3910004E4E7 /* LogEntry+CoreDataProperties.swift */; };
+		D0F03DE71CB5F3910004E4E7 /* LogEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F03DE51CB5F3910004E4E7 /* LogEntry.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +60,9 @@
 		D072DEDD1CACC30B008DA1D6 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		D072DEDF1CACC968008DA1D6 /* entryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = entryController.swift; sourceTree = "<group>"; };
 		D072DEE11CB365EC008DA1D6 /* LogTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogTableViewController.swift; sourceTree = "<group>"; };
+		D0F03DE21CB5F0DD0004E4E7 /* LogBookTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogBookTableViewCell.swift; sourceTree = "<group>"; };
+		D0F03DE41CB5F3910004E4E7 /* LogEntry+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "LogEntry+CoreDataProperties.swift"; path = "../LogEntry+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D0F03DE51CB5F3910004E4E7 /* LogEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LogEntry.swift; path = ../LogEntry.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,9 +116,12 @@
 				D072DEA71CA4D867008DA1D6 /* AppDelegate.swift */,
 				D072DEA91CA4D867008DA1D6 /* ViewController.swift */,
 				D072DEAB1CA4D867008DA1D6 /* Main.storyboard */,
+				D0F03DE41CB5F3910004E4E7 /* LogEntry+CoreDataProperties.swift */,
+				D0F03DE51CB5F3910004E4E7 /* LogEntry.swift */,
 				D072DEDF1CACC968008DA1D6 /* entryController.swift */,
 				D072DED81CA62ADE008DA1D6 /* ContactTableViewController.swift */,
 				D072DEE11CB365EC008DA1D6 /* LogTableViewController.swift */,
+				D0F03DE21CB5F0DD0004E4E7 /* LogBookTableViewCell.swift */,
 				D072DEDC1CACC30B008DA1D6 /* Model.xcdatamodeld */,
 				D072DEB11CA4D867008DA1D6 /* Assets.xcassets */,
 				D072DEB31CA4D867008DA1D6 /* LaunchScreen.storyboard */,
@@ -274,8 +283,11 @@
 				D072DEE01CACC968008DA1D6 /* entryController.swift in Sources */,
 				D072DED91CA62ADE008DA1D6 /* ContactTableViewController.swift in Sources */,
 				D072DEB01CA4D867008DA1D6 /* logger.xcdatamodeld in Sources */,
+				D0F03DE61CB5F3910004E4E7 /* LogEntry+CoreDataProperties.swift in Sources */,
 				D072DEE21CB365EC008DA1D6 /* LogTableViewController.swift in Sources */,
 				D072DEDE1CACC30B008DA1D6 /* Model.xcdatamodeld in Sources */,
+				D0F03DE31CB5F0DD0004E4E7 /* LogBookTableViewCell.swift in Sources */,
+				D0F03DE71CB5F3910004E4E7 /* LogEntry.swift in Sources */,
 				D072DEAA1CA4D867008DA1D6 /* ViewController.swift in Sources */,
 				D072DEA81CA4D867008DA1D6 /* AppDelegate.swift in Sources */,
 			);
@@ -504,6 +516,7 @@
 				D072DED11CA4D867008DA1D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D072DED21CA4D867008DA1D6 /* Build configuration list for PBXNativeTarget "loggerTests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +525,7 @@
 				D072DED41CA4D867008DA1D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D072DED51CA4D867008DA1D6 /* Build configuration list for PBXNativeTarget "loggerUITests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +534,7 @@
 				D072DED71CA4D867008DA1D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
