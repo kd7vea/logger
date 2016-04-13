@@ -11,7 +11,7 @@ import CoreData
 
 class ContactTableViewController: UITableViewController {
 
-    var log: Log?
+    var logEntry: LogEntry?
    
 
     
@@ -40,7 +40,7 @@ class ContactTableViewController: UITableViewController {
     func updateLog() {
         
         let callSign = callSignTextField.text!
-        let qsoTime = qsoTimeTextField.text!
+        let qsoTime = qsoTimeTextField.NSDate()!
         let band = bandTextField.text!
         let frequency = frequencyTextField.text!
         let contest = contestTextField.text!
@@ -57,28 +57,28 @@ class ContactTableViewController: UITableViewController {
         let comments = commentsTextView.text!
         
         
-        if let log = self.log {
-            log.callSign = callSign
-            log.qsoTime = qsoTime
-            log.band = band
-            log.frequency = frequency
-            log.contest = contest
-            log.arrlSect = arrlSect
-            log.arrlClass = arrlClass
-            log.mode = mode
-            log.power = power
-            log.txRst = txRst
-            log.rxRst = rxRst
-            log.infoTx = infoTx
-            log.txSerial = txSerial
-            log.infoRx = infoRx
-            log.rxSerial = rxSerial
-            log.comments = comments
+        if let logEntry = self.logEntry {
+            logEntry.callSign = callSign
+            logEntry.qsoTime = NSDate()
+            logEntry.band = band
+            logEntry.frequency = frequency
+            logEntry.contest = contest
+            logEntry.arrlSect = arrlSect
+            logEntry.arrlClass = arrlClass
+            logEntry.mode = mode
+            logEntry.power = power
+            logEntry.txRst = txRst
+            logEntry.rxRst = rxRst
+            logEntry.infoTx = infoTx
+            logEntry.txSerial = txSerial
+            logEntry.infoRx = infoRx
+            logEntry.rxSerial = rxSerial
+            logEntry.comments = comments
             
         } else {
-            
-            let newLog = Log(callSign: callSign, qsoTime: qsoTime, band: band, frequency: frequency, contest: contest, arrlSect: arrlSect, arrlClass: arrlClass, mode: mode, power: power, txRst: txRst, rxRst: rxRst, infoTx: infoTx, txSerial: txSerial, infoRx: infoRx, rxSerial: rxSerial, comments: comments)
-            LogController.sharedController.addLog(newLog)
+        
+            let newLog = LogEntry(callSign: callSign, qsoTime: NSDate(), band: band, frequency: frequency, contest: contest, arrlSect: arrlSect, arrlClass: arrlClass, mode: mode, power: power, txRst: txRst, rxRst: rxRst, infoTx: infoTx, txSerial: txSerial, infoRx: infoRx, rxSerial: rxSerial, comments: comments)
+            entryController.sharedController.addLog(newLog)
         }
     }
     

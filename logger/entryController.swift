@@ -17,8 +17,8 @@ class entryController {
     static let sharedController = entryController()
     
     var mockLogEntry:[LogEntry] {
-        let sampleEntry1 = LogEntry(call: "KB7CM", band: "40")
-        let sampleEntry2 = LogEntry(call: "KD7VEA", band: "40")
+        let sampleEntry1 = LogEntry(callSign: "KB7CM", band: "40")
+        let sampleEntry2 = LogEntry(callSign: "KD7VEA", band: "40")
         
         return [sampleEntry1, sampleEntry2]
     }
@@ -35,7 +35,7 @@ class entryController {
     }
     
     
-    func addLogEntry(logEntry: LogEntry) {
+    func addLog(logEntry: LogEntry) {
         
         saveToPersistentStorage()
     }

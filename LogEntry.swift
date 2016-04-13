@@ -12,14 +12,14 @@ import CoreData
 
 class LogEntry: NSManagedObject {
 
-    convenience init(call: String, timestamp: NSDate = NSDate(), band: String? = nil, frequency: String? = nil, contest: String? = nil, arrlSect: String? = nil, arrlClass: String? = nil, mode: String? = nil, power: String? = nil, txRst: String? = nil, rxRst: String? = nil, infoTx: String? = nil, txSerial: String? = nil , infoRx: String? = nil, rxSerial: String? = nil, comments: String? = nil,  context: NSManagedObjectContext = Stack.sharedStack.managedObjectContext)  {
+    convenience init(callSign: String, qsoTime: NSDate = NSDate(), band: String? = nil, frequency: String? = nil, contest: String? = nil, arrlSect: String? = nil, arrlClass: String? = nil, mode: String? = nil, power: String? = nil, txRst: String? = nil, rxRst: String? = nil, infoTx: String? = nil, txSerial: String? = nil , infoRx: String? = nil, rxSerial: String? = nil, comments: String? = nil,  context: NSManagedObjectContext = Stack.sharedStack.managedObjectContext)  {
         
         let entity = NSEntityDescription.entityForName("LogEntry", inManagedObjectContext: context)!
         
         self.init(entity: entity, insertIntoManagedObjectContext: context)
         
-        self.callSign = call
-        self.qsoTime = timestamp
+        self.callSign = callSign
+        self.qsoTime = qsoTime
         self.band = band
         self.frequency = frequency
         self.contest = contest
