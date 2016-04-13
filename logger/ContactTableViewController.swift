@@ -40,7 +40,7 @@ class ContactTableViewController: UITableViewController {
     func updateLog() {
         
         let callSign = callSignTextField.text!
-        let qsoTime = qsoTimeTextField.NSDate()!
+        let qsoTime = qsoTimeTextField.text!
         let band = bandTextField.text!
         let frequency = frequencyTextField.text!
         let contest = contestTextField.text!
