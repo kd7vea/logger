@@ -11,28 +11,75 @@ import CoreData
 
 class ContactTableViewController: UITableViewController {
 
-        
+    var log: Log?
    
 
     
-    @IBOutlet weak var callSign: UITextField!
-    @IBOutlet weak var qsoTime: UITextField!
-    @IBOutlet weak var band: UITextField!
-    @IBOutlet weak var frequency: UITextField!
-    @IBOutlet weak var contest: UITextField!
-    @IBOutlet weak var arrlSect: UITextField!
-    @IBOutlet weak var arrlClass: UITextField!
-    @IBOutlet weak var mode: UITextField!
-    @IBOutlet weak var power: UITextField!
-    @IBOutlet weak var txRst: UITextField!
-    @IBOutlet weak var rxRst: UITextField!
-    @IBOutlet weak var infoTx: UITextField!
-    @IBOutlet weak var txSerial: UITextField!
-    @IBOutlet weak var infoRx: UITextField!
-    @IBOutlet weak var rxSerial: UITextField!
-    @IBOutlet weak var comments: UITextView!
+    @IBOutlet weak var callSignTextField: UITextField!
+    @IBOutlet weak var qsoTimeTextField: UITextField!
+    @IBOutlet weak var bandTextField: UITextField!
+    @IBOutlet weak var frequencyTextField: UITextField!
+    @IBOutlet weak var contestTextField: UITextField!
+    @IBOutlet weak var arrlSectTextField: UITextField!
+    @IBOutlet weak var arrlClassTextField: UITextField!
+    @IBOutlet weak var modeTextField: UITextField!
+    @IBOutlet weak var powerTextField: UITextField!
+    @IBOutlet weak var txRstTextField: UITextField!
+    @IBOutlet weak var rxRstTextField: UITextField!
+    @IBOutlet weak var infoTxTextField: UITextField!
+    @IBOutlet weak var txSerialTextField: UITextField!
+    @IBOutlet weak var infoRxTextField: UITextField!
+    @IBOutlet weak var rxSerialTextField: UITextField!
+    @IBOutlet weak var commentsTextView: UITextView!
     
-    @IBAction func saveButton(sender: AnyObject) {
+    @IBAction func saveButtonTapped(sender: AnyObject) {
+        updateLog()
+        navigationController?.popViewControllerAnimated(true)
+    }
+    
+    func updateLog() {
+        
+        let callSign = callSignTextField.text!
+        let qsoTime = qsoTimeTextField.text!
+        let band = bandTextField.text!
+        let frequency = frequencyTextField.text!
+        let contest = contestTextField.text!
+        let arrlSect = arrlSectTextField.text!
+        let arrlClass = arrlClassTextField.text!
+        let mode = modeTextField.text!
+        let power = powerTextField.text!
+        let txRst = txRstTextField.text!
+        let rxRst = rxRstTextField.text!
+        let infoTx = infoTxTextField.text!
+        let txSerial = txSerialTextField.text!
+        let infoRx = infoTxTextField.text!
+        let rxSerial = rxSerialTextField.text!
+        let comments = commentsTextView.text!
+        
+        
+        if let log = self.log {
+            log.callSign = callSign
+            log.qsoTime = qsoTime
+            log.band = band
+            log.frequency = frequency
+            log.contest = contest
+            log.arrlSect = arrlSect
+            log.arrlClass = arrlClass
+            log.mode = mode
+            log.power = power
+            log.txRst = txRst
+            log.rxRst = rxRst
+            log.infoTx = infoTx
+            log.txSerial = txSerial
+            log.infoRx = infoRx
+            log.rxSerial = rxSerial
+            log.comments = comments
+            
+        } else {
+            
+            let newLog = Log(callSign: callSign, qsoTime: qsoTime, band: band, frequency: frequency, contest: contest, arrlSect: arrlSect, arrlClass: arrlClass, mode: mode, power: power, txRst: txRst, rxRst: rxRst, infoTx: infoTx, txSerial: txSerial, infoRx: infoRx, rxSerial: rxSerial, comments: comments)
+            LogController.sharedController.addLog(newLog)
+        }
     }
     
     

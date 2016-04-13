@@ -10,53 +10,67 @@
 import Foundation
 import CoreData
 
-   // @objc(Task)
-    class entry: NSManagedObject {
-       
-        var logEntry:[LogEntry] {
-            
-            let request = NSFetchRequest(entityName: "LogEntry")
-            
-            do {
-                return try Stack.sharedStack.managedObjectContext.executeFetchRequest(request) as! [LogEntry]
-            } catch {
-                return []
-            }
-        }
-
+class entryController {
+    
+    private let LogKey = "logs"
+    
+    static let sharedController = entryController()
+    
+    var mockLogEntry:[LogEntry] {
+        let sampleEntry1 = LogEntry(call: "KB7CM", band: "40")
+        let sampleEntry2 = LogEntry(call: "KD7VEA", band: "40")
         
-       
-        
-        
-       //connect this func to the save buton !!
-        
-        
-        func addEntry(logEntry: LogEntry) {
-            
-            saveToPersistentStorage()
-        }
-        
-        func removeEntry(logEntry: LogEntry) {
-            
-            logEntry.managedObjectContext?.deleteObject(logEntry)
-            saveToPersistentStorage()
-        }
-        
-        // MARK: - Persistence
-        
-        func saveToPersistentStorage() {
-            
-            do {
-                try Stack.sharedStack.managedObjectContext.save()
-            } catch {
-                print("Error saving Managed Object Context. Entry not saved.")
-            }
-        }
- 
-        
-        
+        return [sampleEntry1, sampleEntry2]
     }
+    
+    var logEntry:[LogEntry] {
+        
+        let request = NSFetchRequest(entityName: "LogEntry")
+        
+        do {
+            return try Stack.sharedStack.managedObjectContext.executeFetchRequest(request) as! [LogEntry]
+        } catch {
+            return []
+        }
+    }
+    
+    
+    func addLogEntry(logEntry: LogEntry) {
+        
+        saveToPersistentStorage()
+    }
+    
+    func removeLogEntry(logEntry: LogEntry) {
+        
+        logEntry.managedObjectContext?.deleteObject(logEntry)
+        saveToPersistentStorage()
+    }
+    
+    // MARK: - Persistence
+    
+    func saveToPersistentStorage() {
+        
+        do {
+            try Stack.sharedStack.managedObjectContext.save()
+        } catch {
+            print("Error saving Managed Object Context. Items not saved.")
+        }
+    }
+    
+    func filePath(key: String) -> String {
+        let directorySearchResults = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory,NSSearchPathDomainMask.AllDomainsMask, true)
+        let documentsPath: AnyObject = directorySearchResults[0]
+        let entriesPath = documentsPath.stringByAppendingString("/\(key).plist")
+        
+        return entriesPath
+    }
+}
 
-    
-    
+
+
+
+
+
+
+
 
