@@ -14,6 +14,12 @@ class LogTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        
+        tableView.reloadData()
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -23,18 +29,31 @@ class LogTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 1
+        return entryController.sharedController.LogEntry.count
         
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("logCell", forIndexPath: indexPath) as! LogBookTableViewCell
-
+        let logEntry = entryController.sharedController.logEntry[indexPath.row]
+        
+        cell.updateWithLogEntry(logEntry)
+        cell.delegate = self
+        
         return cell
     }
-    
+
+
+override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    if editingStyle == .Delete {
+        
+        let logEntry = entryController.sharedController.logEntry[indexPath.row]
+        entryController.sharedController.removeLogEntry(logEntry)
+        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+    }
+}
+
 
     /*
     // Override to support conditional editing of the table view.

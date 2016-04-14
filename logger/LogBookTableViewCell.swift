@@ -9,11 +9,13 @@
 import UIKit
 
 class LogBookTableViewCell: UITableViewCell {
+    
+    var logEntry: LogEntry?
 
-    @IBOutlet weak var comments: UITextView!
-    @IBOutlet weak var frequency: UITextField!
-    @IBOutlet weak var time: UITextField!
-    @IBOutlet weak var callSign: UITextField!
+    @IBOutlet weak var commentsTextField: UITextView!
+    @IBOutlet weak var frequencyTextField: UITextField!
+    @IBOutlet weak var timeTextField: UITextField!
+    @IBOutlet weak var callSignTextField: UITextField!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,5 +27,9 @@ class LogBookTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func updateWithLogEntry(logEntry: LogEntry) {
+        self.logEntry = logEntry
+       
 
 }

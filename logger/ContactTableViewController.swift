@@ -95,6 +95,35 @@ class ContactTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func updateWithLogEntry(logEntry: LogEntry) {
+        self.logEntry = logEntry
+        callSignTextField.text = logEntry.callSign
+        qsoTimeTextField.NSDate() = logEntry.qsoTime
+        bandTextField.text = logEntry.band
+        frequencyTextField.text = logEntry.frequency
+        contestTextField.text = logEntry.contest
+        arrlSectTextField.text = logEntry.arrlSect
+        arrlClassTextField.text = logEntry.arrlClass
+        modeTextField.text = logEntry.mode
+        powerTextField.text = logEntry.power
+        txRstTextField.text = logEntry.txRst
+        rxRstTextField.text = logEntry.rxRst
+        infoTxTextField.text = logEntry.infoTx
+        txSerialTextField.text = logEntry.txSerial
+        infoRxTextField.text = logEntry.infoRx
+        rxSerialTextField.text =  logEntry.rxSerial
+        commentsTextView.text = logEntry.comments
+        
+        }
+        
+    }
+    
+
+    
+    
+    
+    
 
     
     
