@@ -261,6 +261,15 @@
                                                         </mask>
                                                     </variation>
                                                 </textField>
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="H6P-CN-DDN">
+                                                    <rect key="frame" x="-160" y="-108" width="320" height="216"/>
+                                                    <date key="date" timeIntervalSinceReferenceDate="482614849.23008299">
+                                                        <!--2016-04-17 19:40:49 +0000-->
+                                                    </date>
+                                                    <variation key="heightClass=regular" fixedFrame="YES">
+                                                        <rect key="frame" x="288" y="4" width="304" height="79"/>
+                                                    </variation>
+                                                </datePicker>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Cs0-QH-mEM" firstAttribute="baseline" secondItem="Zcp-aR-iOV" secondAttribute="baseline" id="DfE-kG-xGO"/>
@@ -269,6 +278,9 @@
                                                 <constraint firstItem="Zcp-aR-iOV" firstAttribute="top" secondItem="oKz-Gp-YRC" secondAttribute="topMargin" id="twx-l0-Sh5"/>
                                             </constraints>
                                             <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="H6P-CN-DDN"/>
+                                                </mask>
                                                 <mask key="constraints">
                                                     <exclude reference="DfE-kG-xGO"/>
                                                     <exclude reference="Yfv-NX-Zen"/>
@@ -277,6 +289,9 @@
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular">
+                                                <mask key="subviews">
+                                                    <include reference="H6P-CN-DDN"/>
+                                                </mask>
                                                 <mask key="constraints">
                                                     <include reference="DfE-kG-xGO"/>
                                                     <include reference="Yfv-NX-Zen"/>
@@ -1069,6 +1084,7 @@
                         <outlet property="rxSerialTextField" destination="xDK-9M-5YD" id="HZw-nq-chG"/>
                         <outlet property="txRstTextField" destination="5yw-gt-mdn" id="YTb-W3-bc8"/>
                         <outlet property="txSerialTextField" destination="JDX-bH-fe3" id="ME5-QX-TFp"/>
+                        <outlet property="whenDateChangeed" destination="H6P-CN-DDN" id="AF5-Jo-8O5"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vic-M9-ycn" userLabel="First Responder" sceneMemberID="firstResponder"/>

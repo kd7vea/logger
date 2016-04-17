@@ -37,10 +37,21 @@ class ContactTableViewController: UITableViewController {
         navigationController?.popViewControllerAnimated(true)
     }
     
+    
     func updateLog() {
         
         let callSign = callSignTextField.text!
-        let qsoTime = qsoTimeTextField.text!
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = .MediumStyle
+        dateFormatter.timeStyle = .NoStyle
+        
+        let qsoTimeTextField = NSDate(timeIntervalSinceReferenceDate: 118800)
+        
+        // US English Locale (en_US)
+        dateFormatter.locale = NSLocale(localeIdentifier: "en_US")
+        NSLog("%@", dateFormatter.stringFromDate(qsoTimeTextField.text)) // Jan 2, 2001
+
+        let NSDateFormatter = qsoTimeTextField.text!
         let band = bandTextField.text!
         let frequency = frequencyTextField.text!
         let contest = contestTextField.text!
@@ -55,11 +66,11 @@ class ContactTableViewController: UITableViewController {
         let infoRx = infoTxTextField.text!
         let rxSerial = rxSerialTextField.text!
         let comments = commentsTextView.text!
-        
-        
+     
+     
         if let logEntry = self.logEntry {
             logEntry.callSign = callSign
-            logEntry.qsoTime = NSDate()
+            logEntry.qsoTime = NSDateFormatter()
             logEntry.band = band
             logEntry.frequency = frequency
             logEntry.contest = contest
@@ -99,7 +110,7 @@ class ContactTableViewController: UITableViewController {
     func updateWithLogEntry(logEntry: LogEntry) {
         self.logEntry = logEntry
         callSignTextField.text = logEntry.callSign
-        qsoTimeTextField.NSDate() = logEntry.qsoTime
+        qsoTimeTextField.text = logEntry.NSDateFormatter(qsoTimeTextField)
         bandTextField.text = logEntry.band
         frequencyTextField.text = logEntry.frequency
         contestTextField.text = logEntry.contest
@@ -117,7 +128,7 @@ class ContactTableViewController: UITableViewController {
         
         }
         
-    }
+    
     
 
     
