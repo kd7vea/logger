@@ -1074,6 +1074,7 @@
                         <outlet property="callSignTextField" destination="OKO-V6-agf" id="Ira-ih-aXB"/>
                         <outlet property="commentsTextView" destination="175-cA-SYz" id="t0Z-7M-EoB"/>
                         <outlet property="contestTextField" destination="iNZ-gO-2j3" id="ed4-8h-VoT"/>
+                        <outlet property="datePicker" destination="H6P-CN-DDN" id="Lx0-eV-PGO"/>
                         <outlet property="frequencyTextField" destination="IM4-mM-ZGb" id="dtc-fv-4OZ"/>
                         <outlet property="infoRxTextField" destination="zTs-lv-VKz" id="YNC-0s-5yN"/>
                         <outlet property="infoTxTextField" destination="Tej-Dw-rFx" id="jCZ-Fu-okF"/>
@@ -1084,7 +1085,6 @@
                         <outlet property="rxSerialTextField" destination="xDK-9M-5YD" id="HZw-nq-chG"/>
                         <outlet property="txRstTextField" destination="5yw-gt-mdn" id="YTb-W3-bc8"/>
                         <outlet property="txSerialTextField" destination="JDX-bH-fe3" id="ME5-QX-TFp"/>
-                        <outlet property="whenDateChangeed" destination="H6P-CN-DDN" id="AF5-Jo-8O5"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vic-M9-ycn" userLabel="First Responder" sceneMemberID="firstResponder"/>

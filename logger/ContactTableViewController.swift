@@ -12,7 +12,7 @@ import CoreData
 class ContactTableViewController: UITableViewController {
 
     var logEntry: LogEntry?
-   
+    let dateFormatter = NSDateFormatter()
 
     
     @IBOutlet weak var callSignTextField: UITextField!
@@ -37,20 +37,17 @@ class ContactTableViewController: UITableViewController {
         navigationController?.popViewControllerAnimated(true)
     }
     
+    @IBOutlet weak var datePicker: UIDatePicker!
+    
+    
+    
+    
+   
     
     func updateLog() {
         
+        
         let callSign = callSignTextField.text!
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateStyle = .MediumStyle
-        dateFormatter.timeStyle = .NoStyle
-        
-        let qsoTimeTextField = NSDate(timeIntervalSinceReferenceDate: 118800)
-        
-        // US English Locale (en_US)
-        dateFormatter.locale = NSLocale(localeIdentifier: "en_US")
-        NSLog("%@", dateFormatter.stringFromDate(qsoTimeTextField.text)) // Jan 2, 2001
-
         let NSDateFormatter = qsoTimeTextField.text!
         let band = bandTextField.text!
         let frequency = frequencyTextField.text!
@@ -70,7 +67,7 @@ class ContactTableViewController: UITableViewController {
      
         if let logEntry = self.logEntry {
             logEntry.callSign = callSign
-            logEntry.qsoTime = NSDateFormatter()
+            logEntry.qsoTime = NSDate()
             logEntry.band = band
             logEntry.frequency = frequency
             logEntry.contest = contest
@@ -110,7 +107,7 @@ class ContactTableViewController: UITableViewController {
     func updateWithLogEntry(logEntry: LogEntry) {
         self.logEntry = logEntry
         callSignTextField.text = logEntry.callSign
-        qsoTimeTextField.text = logEntry.NSDateFormatter(qsoTimeTextField)
+       dateFormatter.qsoTimeTextField.text = logEntry.qsoTime
         bandTextField.text = logEntry.band
         frequencyTextField.text = logEntry.frequency
         contestTextField.text = logEntry.contest
