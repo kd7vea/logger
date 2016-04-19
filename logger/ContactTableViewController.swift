@@ -48,7 +48,7 @@ class ContactTableViewController: UITableViewController {
         
         
         let callSign = callSignTextField.text!
-        let NSDateFormatter = qsoTimeTextField.text!
+        let qsoTime = qsoTimeTextField.text!
         let band = bandTextField.text!
         let frequency = frequencyTextField.text!
         let contest = contestTextField.text!
@@ -67,7 +67,7 @@ class ContactTableViewController: UITableViewController {
      
         if let logEntry = self.logEntry {
             logEntry.callSign = callSign
-            logEntry.qsoTime = NSDate()
+            logEntry.qsoTime = NSDate.fromDateString(qsoTime) ?? NSDate()
             logEntry.band = band
             logEntry.frequency = frequency
             logEntry.contest = contest
@@ -107,7 +107,7 @@ class ContactTableViewController: UITableViewController {
     func updateWithLogEntry(logEntry: LogEntry) {
         self.logEntry = logEntry
         callSignTextField.text = logEntry.callSign
-       dateFormatter.qsoTimeTextField.text = logEntry.qsoTime
+        qsoTimeTextField.text = logEntry.qsoTime?.dateAndTimeString
         bandTextField.text = logEntry.band
         frequencyTextField.text = logEntry.frequency
         contestTextField.text = logEntry.contest
