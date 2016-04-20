@@ -29,7 +29,7 @@ class LogTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return entryController.sharedController.LogEntry.count
+        return entryController.sharedController.logEntry.count
         
     }
 
@@ -39,7 +39,7 @@ class LogTableViewController: UITableViewController {
         let logEntry = entryController.sharedController.logEntry[indexPath.row]
         
         cell.updateWithLogEntry(logEntry)
-        cell.delegate = self
+        //cell.delegate = self
         
         return cell
     }

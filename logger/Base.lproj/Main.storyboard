@@ -260,16 +260,10 @@
                                                             <include reference="x36-m0-TeD"/>
                                                         </mask>
                                                     </variation>
+                                                    <connections>
+                                                        <action selector="textFieldEditing:" destination="wOy-fw-XiT" eventType="editingDidEnd" id="U92-J2-Aeo"/>
+                                                    </connections>
                                                 </textField>
-                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="H6P-CN-DDN">
-                                                    <rect key="frame" x="-160" y="-108" width="320" height="216"/>
-                                                    <date key="date" timeIntervalSinceReferenceDate="482614849.23008299">
-                                                        <!--2016-04-17 19:40:49 +0000-->
-                                                    </date>
-                                                    <variation key="heightClass=regular" fixedFrame="YES">
-                                                        <rect key="frame" x="288" y="4" width="304" height="79"/>
-                                                    </variation>
-                                                </datePicker>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Cs0-QH-mEM" firstAttribute="baseline" secondItem="Zcp-aR-iOV" secondAttribute="baseline" id="DfE-kG-xGO"/>
@@ -278,9 +272,6 @@
                                                 <constraint firstItem="Zcp-aR-iOV" firstAttribute="top" secondItem="oKz-Gp-YRC" secondAttribute="topMargin" id="twx-l0-Sh5"/>
                                             </constraints>
                                             <variation key="default">
-                                                <mask key="subviews">
-                                                    <exclude reference="H6P-CN-DDN"/>
-                                                </mask>
                                                 <mask key="constraints">
                                                     <exclude reference="DfE-kG-xGO"/>
                                                     <exclude reference="Yfv-NX-Zen"/>
@@ -289,9 +280,6 @@
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular">
-                                                <mask key="subviews">
-                                                    <include reference="H6P-CN-DDN"/>
-                                                </mask>
                                                 <mask key="constraints">
                                                     <include reference="DfE-kG-xGO"/>
                                                     <include reference="Yfv-NX-Zen"/>
@@ -1074,7 +1062,7 @@
                         <outlet property="callSignTextField" destination="OKO-V6-agf" id="Ira-ih-aXB"/>
                         <outlet property="commentsTextView" destination="175-cA-SYz" id="t0Z-7M-EoB"/>
                         <outlet property="contestTextField" destination="iNZ-gO-2j3" id="ed4-8h-VoT"/>
-                        <outlet property="datePicker" destination="H6P-CN-DDN" id="Lx0-eV-PGO"/>
+                        <outlet property="datePicker" destination="Zcp-aR-iOV" id="HGB-u4-Tzq"/>
                         <outlet property="frequencyTextField" destination="IM4-mM-ZGb" id="dtc-fv-4OZ"/>
                         <outlet property="infoRxTextField" destination="zTs-lv-VKz" id="YNC-0s-5yN"/>
                         <outlet property="infoTxTextField" destination="Tej-Dw-rFx" id="jCZ-Fu-okF"/>
@@ -1089,7 +1077,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vic-M9-ycn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1283" y="890.25"/>
+            <point key="canvasLocation" x="1410" y="847.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ehz-iL-Dim">

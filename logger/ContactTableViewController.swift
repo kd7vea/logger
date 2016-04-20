@@ -39,8 +39,28 @@ class ContactTableViewController: UITableViewController {
     
     @IBOutlet weak var datePicker: UIDatePicker!
     
+    @IBAction func textFieldEditing(sender: UITextField) {
+        let datePickerView:UIDatePicker = UIDatePicker()
+        
+        datePickerView.datePickerMode = UIDatePickerMode.Date
+        
+        sender.inputView = datePickerView
+        
+        datePickerView.addTarget(self, action: #selector(ContactTableViewController.datePickerValueChanged), forControlEvents: UIControlEvents.ValueChanged)
+        
+    }
     
-    
+    func datePickerValueChanged(sender:UIDatePicker) {
+        
+        let dateFormatter = NSDateFormatter()
+        
+        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+        
+        dateFormatter.timeStyle = NSDateFormatterStyle.NoStyle
+        
+        qsoTimeTextField.text = dateFormatter.stringFromDate(sender.date)
+        
+    }
     
    
     
@@ -91,12 +111,11 @@ class ContactTableViewController: UITableViewController {
     }
     
     
-    var calls = [String]()
+   // var calls = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "\"New Contact\""
-        tableView.registerClass(UITableViewCell.self,forCellReuseIdentifier: "callCell")
+        //tableView.registerClass(UITableViewCell.self,forCellReuseIdentifier: "callCell")
     }
     
     override func didReceiveMemoryWarning() {

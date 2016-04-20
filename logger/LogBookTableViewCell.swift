@@ -32,4 +32,5 @@ class LogBookTableViewCell: UITableViewCell {
         self.logEntry = logEntry
        
 
+    }
 }
