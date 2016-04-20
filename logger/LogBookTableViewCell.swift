@@ -6,6 +6,7 @@
 //  Copyright © 2016 Jake Estepp. All rights reserved.
 //
 
+
 import UIKit
 
 class LogBookTableViewCell: UITableViewCell {
@@ -17,6 +18,8 @@ class LogBookTableViewCell: UITableViewCell {
     @IBOutlet weak var timeTextField: UITextField!
     @IBOutlet weak var callSignTextField: UITextField!
     
+    var delegate: LogBookTableViewCell?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -24,13 +27,10 @@ class LogBookTableViewCell: UITableViewCell {
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     func updateWithLogEntry(logEntry: LogEntry) {
         self.logEntry = logEntry
-       
-
     }
+    
 }

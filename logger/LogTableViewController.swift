@@ -29,6 +29,7 @@ class LogTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return entryController.sharedController.logEntry.count
         
     }
@@ -39,7 +40,6 @@ class LogTableViewController: UITableViewController {
         let logEntry = entryController.sharedController.logEntry[indexPath.row]
         
         cell.updateWithLogEntry(logEntry)
-        //cell.delegate = self
         
         return cell
     }
@@ -54,6 +54,9 @@ override func tableView(tableView: UITableView, commitEditingStyle editingStyle:
     }
 }
 
+
+
+    
 
     /*
     // Override to support conditional editing of the table view.

@@ -34,7 +34,9 @@ class ContactTableViewController: UITableViewController {
     
     @IBAction func saveButtonTapped(sender: AnyObject) {
         updateLog()
+        clearTextFields()
         navigationController?.popViewControllerAnimated(true)
+        
     }
     
     @IBOutlet weak var datePicker: UIDatePicker!
@@ -62,7 +64,26 @@ class ContactTableViewController: UITableViewController {
         
     }
     
-   
+    func clearTextFields() {
+        callSignTextField.text = ""
+        qsoTimeTextField.text = ""
+        bandTextField.text = ""
+        frequencyTextField.text = ""
+        contestTextField.text = ""
+        arrlSectTextField.text = ""
+        arrlClassTextField.text = ""
+        modeTextField.text = ""
+        powerTextField.text = ""
+        txRstTextField.text = ""
+        rxRstTextField.text = ""
+        infoTxTextField.text = ""
+        txSerialTextField.text = ""
+        infoTxTextField.text = ""
+        rxSerialTextField.text = ""
+        commentsTextView.text = ""
+    }
+
+    
     
     func updateLog() {
         
@@ -109,6 +130,8 @@ class ContactTableViewController: UITableViewController {
             entryController.sharedController.addLog(newLog)
         }
     }
+    
+    
     
     
    // var calls = [String]()
