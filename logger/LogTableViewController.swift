@@ -10,22 +10,11 @@ import UIKit
 
 class LogTableViewController: UITableViewController {
     
-    let fetchRequest = NSFetchRequest()
     
     
-    let entityDescription = NSEntityDescription.entityForName("LogEntry", inManagedObjectContext: self.managedObjectContext)
+    
     
 
-    fetchRequest.entity = entityDescription
-    
-    do {
-    let result = try self.managedObjectContext.executeFetchRequest(fetchRequest)
-    print(result)
-    
-    } catch {
-    let fetchError = error as NSError
-    print(fetchError)
-    }
     
     
     

@@ -34,6 +34,26 @@ class entryController {
         }
     }
     
+    func fetch() {
+        
+        let fetchRequest = NSFetchRequest(entityName: "")
+        
+        let entityDescription = NSEntityDescription.entityForName("LogEntry", inManagedObjectContext: Stack.sharedStack.managedObjectContext)
+        
+        
+        fetchRequest.entity = entityDescription
+        
+        do {
+            let result = try Stack.sharedStack.managedObjectContext.executeFetchRequest(fetchRequest)
+            print(result)
+            
+        } catch {
+            let fetchError = error as NSError
+            print(fetchError)
+        }
+
+    }
+    
     
     func addLog(logEntry: LogEntry) {
         
