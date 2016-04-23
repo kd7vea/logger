@@ -8,16 +8,13 @@
 
 import UIKit
 
-class LogTableViewController: UITableViewController {
-    
-    
-    
-    
-    
 
-    
-    
-    
+class LogTableViewController: UITableViewController {
+
+    protocol LogTableViewControllerDelegate: LogTableViewController {
+        func viewDidLoad(sender: ContactTableViewController)
+    }
+
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -54,7 +51,7 @@ class LogTableViewController: UITableViewController {
         let logEntry = entryController.sharedController.logEntry[indexPath.row]
         
         cell.updateWithLogEntry(logEntry)
-        
+    //    cell.callSignTextField = logEntry.callSign
         
         return cell
     }
@@ -119,3 +116,4 @@ override func tableView(tableView: UITableView, commitEditingStyle editingStyle:
     */
 
 }
+

@@ -16,13 +16,7 @@ class entryController {
     
     static let sharedController = entryController()
     
-    var mockLogEntry:[LogEntry] {
-        let sampleEntry1 = LogEntry(callSign: "KB7CM", band: "40")
-        let sampleEntry2 = LogEntry(callSign: "KD7VEA", band: "40")
-        
-        return [sampleEntry1, sampleEntry2]
-    }
-    
+       
     var logEntry:[LogEntry] {
         
         let request = NSFetchRequest(entityName: "LogEntry")
@@ -33,27 +27,6 @@ class entryController {
             return []
         }
     }
-    
-    func fetch() {
-        
-        let fetchRequest = NSFetchRequest(entityName: "")
-        
-        let entityDescription = NSEntityDescription.entityForName("LogEntry", inManagedObjectContext: Stack.sharedStack.managedObjectContext)
-        
-        
-        fetchRequest.entity = entityDescription
-        
-        do {
-            let result = try Stack.sharedStack.managedObjectContext.executeFetchRequest(fetchRequest)
-            print(result)
-            
-        } catch {
-            let fetchError = error as NSError
-            print(fetchError)
-        }
-
-    }
-    
     
     func addLog(logEntry: LogEntry) {
         

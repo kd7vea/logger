@@ -34,3 +34,11 @@ class LogBookTableViewCell: UITableViewCell {
     }
     
 }
+
+extension LogBookTableViewCell {
+        
+        func UpdateWithLogEntry(logEntry: LogEntry) {
+            
+            callSignTextField.text = logEntry.callSign
+        }
+    }

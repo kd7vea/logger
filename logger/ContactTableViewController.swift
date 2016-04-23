@@ -14,6 +14,7 @@ class ContactTableViewController: UITableViewController {
     var logEntry: LogEntry?
     let dateFormatter = NSDateFormatter()
 
+    var delegate:LogTableViewControllerDelegate?
     
     @IBOutlet weak var callSignTextField: UITextField!
     @IBOutlet weak var qsoTimeTextField: UITextField!
@@ -35,7 +36,8 @@ class ContactTableViewController: UITableViewController {
     @IBAction func saveButtonTapped(sender: AnyObject) {
         updateLog()
         clearTextFields()
-        //navigationController?.popViewControllerAnimated(true)
+        
+        navigationController?.popViewControllerAnimated(true)
         
     }
     
@@ -51,6 +53,7 @@ class ContactTableViewController: UITableViewController {
         datePickerView.addTarget(self, action: #selector(ContactTableViewController.datePickerValueChanged), forControlEvents: UIControlEvents.ValueChanged)
         
     }
+    
     
     func datePickerValueChanged(sender:UIDatePicker) {
         
