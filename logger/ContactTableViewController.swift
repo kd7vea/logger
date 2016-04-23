@@ -35,7 +35,7 @@ class ContactTableViewController: UITableViewController {
     @IBAction func saveButtonTapped(sender: AnyObject) {
         updateLog()
         clearTextFields()
-        navigationController?.popViewControllerAnimated(true)
+        //navigationController?.popViewControllerAnimated(true)
         
     }
     

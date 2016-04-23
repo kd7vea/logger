@@ -10,8 +10,33 @@ import UIKit
 
 class LogTableViewController: UITableViewController {
     
+    let fetchRequest = NSFetchRequest()
+    
+    
+    let entityDescription = NSEntityDescription.entityForName("LogEntry", inManagedObjectContext: self.managedObjectContext)
+    
+
+    fetchRequest.entity = entityDescription
+    
+    do {
+    let result = try self.managedObjectContext.executeFetchRequest(fetchRequest)
+    print(result)
+    
+    } catch {
+    let fetchError = error as NSError
+    print(fetchError)
+    }
+    
+    
+    
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
     }
     
@@ -40,6 +65,7 @@ class LogTableViewController: UITableViewController {
         let logEntry = entryController.sharedController.logEntry[indexPath.row]
         
         cell.updateWithLogEntry(logEntry)
+        
         
         return cell
     }
