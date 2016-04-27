@@ -14,7 +14,6 @@ class ContactTableViewController: UITableViewController {
     var logEntry: LogEntry?
     let dateFormatter = NSDateFormatter()
 
-    var delegate:LogTableViewControllerDelegate?
     
     @IBOutlet weak var callSignTextField: UITextField!
     @IBOutlet weak var qsoTimeTextField: UITextField!
@@ -53,7 +52,11 @@ class ContactTableViewController: UITableViewController {
         datePickerView.addTarget(self, action: #selector(ContactTableViewController.datePickerValueChanged), forControlEvents: UIControlEvents.ValueChanged)
         
     }
+   
+       
     
+    
+  
     
     func datePickerValueChanged(sender:UIDatePicker) {
         
@@ -141,7 +144,8 @@ class ContactTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //tableView.registerClass(UITableViewCell.self,forCellReuseIdentifier: "callCell")
+        tableView.backgroundView = UIImageView(image: UIImage(named: "mapBackground"))
+  
     }
     
     override func didReceiveMemoryWarning() {
@@ -170,21 +174,7 @@ class ContactTableViewController: UITableViewController {
         
         }
         
-    
-    
 
-    
-    
-    
-    
-
-    
-    
-  /*  @IBAction func saveButton(sender: AnyObject) {
-        
-    }
-  */  
-   
      /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -231,3 +221,13 @@ class ContactTableViewController: UITableViewController {
     */
 
 }
+extension LogTableViewController: LogTableViewCellDelegate {
+    
+    func saveButtonTapped(sender: LogBookTableViewCell) {
+        tableView.reloadData()
+    }
+}
+
+
+
+

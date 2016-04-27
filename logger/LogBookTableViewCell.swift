@@ -35,10 +35,14 @@ class LogBookTableViewCell: UITableViewCell {
     
 }
 
+
+protocol LogTableViewCellDelegate {
+    
+    func saveButtonTapped(sender: LogBookTableViewCell)
+}
+
 extension LogBookTableViewCell {
-        
-        func UpdateWithLogEntry(logEntry: LogEntry) {
-            
-            callSignTextField.text = logEntry.callSign
-        }
+    
+    func viewDidLoad() {
     }
+}

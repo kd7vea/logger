@@ -11,10 +11,6 @@ import UIKit
 
 class LogTableViewController: UITableViewController {
 
-    protocol LogTableViewControllerDelegate: LogTableViewController {
-        func viewDidLoad(sender: ContactTableViewController)
-    }
-
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -45,30 +41,37 @@ class LogTableViewController: UITableViewController {
         
     }
 
-    
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("logCell", forIndexPath: indexPath) as! LogBookTableViewCell
-        let logEntry = entryController.sharedController.logEntry[indexPath.row]
-        
-        cell.updateWithLogEntry(logEntry)
-    //    cell.callSignTextField = logEntry.callSign
-        
-        return cell
-    }
 
-
-override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-    if editingStyle == .Delete {
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
         
         let logEntry = entryController.sharedController.logEntry[indexPath.row]
         entryController.sharedController.removeLogEntry(logEntry)
         tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        }
     }
-}
 
+ /*
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "viewLogDetail" {
+            
+            let destinationViewController = segue.destinationViewController as? ContactTableViewController
+            
+            if let ContactTableViewController = destinationViewController {
+                
+                // force the destination view controller to draw all subviews for updating
+                _ = ContactTableViewController.view
+                
+                if let selectedRow = tableView.indexPathForSelectedRow?.row {
+                    ContactTableViewController.updateWithLogEntry(entryController.sharedController.logEntry[selectedRow])
+                }
+            }
+        }
+    }
 
-
-    
+*/
+  
 
     /*
     // Override to support conditional editing of the table view.
