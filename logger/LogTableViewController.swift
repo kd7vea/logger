@@ -15,33 +15,32 @@ class LogTableViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
     }
-    
+  
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
     }
-    
+ 
     override func viewDidAppear(animated: Bool) {
         
         tableView.reloadData()
     }
-    
+  
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    
     // MARK: - Table view data source
-
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return entryController.sharedController.logEntry.count
-        
+//        return entryController.sharedController.logEntry.count
+        return 1
     }
 
-
+  
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
         
@@ -51,7 +50,8 @@ class LogTableViewController: UITableViewController {
         }
     }
 
- /*
+ 
+ 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if segue.identifier == "viewLogDetail" {
@@ -70,7 +70,7 @@ class LogTableViewController: UITableViewController {
         }
     }
 
-*/
+
   
 
     /*

@@ -1085,7 +1085,7 @@
                     <navigationItem key="navigationItem" title="New Contact" id="S37-3o-qGA">
                         <barButtonItem key="leftBarButtonItem" title="LogBook" id="xda-G3-bWK">
                             <connections>
-                                <segue destination="fCi-KJ-kWv" kind="show" id="OEs-b5-x5C"/>
+                                <segue destination="fCi-KJ-kWv" kind="show" id="xQc-fX-bl0"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="pWB-dm-G7p">
@@ -1116,7 +1116,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vic-M9-ycn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1412" y="885.75"/>
+            <point key="canvasLocation" x="1396" y="885.75"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ehz-iL-Dim">

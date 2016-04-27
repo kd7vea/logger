@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class ContactTableViewController: UITableViewController {
+class ContactTableViewController: UITableViewController, UITextFieldDelegate {
 
     var logEntry: LogEntry?
     let dateFormatter = NSDateFormatter()
@@ -145,8 +145,25 @@ class ContactTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.backgroundView = UIImageView(image: UIImage(named: "mapBackground"))
-  
+        self.callSignTextField.delegate = self
+        self.qsoTimeTextField.delegate = self
+        self.bandTextField.delegate = self
+        self.frequencyTextField.delegate = self
+        self.contestTextField.delegate = self
+        self.arrlSectTextField.delegate = self
+        self.arrlClassTextField.delegate = self
+        self.modeTextField.delegate = self
+        self.powerTextField.delegate = self
+        self.txRstTextField.delegate = self
+        self.rxRstTextField.delegate = self
+        self.infoTxTextField.delegate = self
+        self.txSerialTextField.delegate = self
+        self.infoTxTextField.delegate = self
+        self.rxSerialTextField.delegate = self
+        
     }
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -172,9 +189,18 @@ class ContactTableViewController: UITableViewController {
         rxSerialTextField.text =  logEntry.rxSerial
         commentsTextView.text = logEntry.comments
         
-        }
-        
-
+    }
+    
+    func textFieldShouldReturn(userText: UITextField) -> Bool {
+        userText.resignFirstResponder()
+        return true;
+    }
+    
+    
+    func textViewShouldReturn(userText: UITextView) -> Bool {
+        userText.resignFirstResponder()
+        return true;
+    }
      /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
