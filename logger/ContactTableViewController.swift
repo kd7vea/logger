@@ -43,13 +43,13 @@ class ContactTableViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet weak var datePicker: UIDatePicker!
     
     @IBAction func textFieldEditing(sender: UITextField) {
-        let datePickerView:UIDatePicker = UIDatePicker()
-        
-        datePickerView.datePickerMode = UIDatePickerMode.Date
-        
-        sender.inputView = datePickerView
-        
-        datePickerView.addTarget(self, action: #selector(ContactTableViewController.datePickerValueChanged), forControlEvents: UIControlEvents.ValueChanged)
+//        let datePickerView:UIDatePicker = UIDatePicker()
+//        
+//        datePickerView.datePickerMode = UIDatePickerMode.Date
+//        
+//        sender.inputView = datePickerView
+//        
+//        datePickerView.addTarget(self, action: #selector(ContactTableViewController.datePickerValueChanged), forControlEvents: UIControlEvents.ValueChanged)
         
     }
    
@@ -189,6 +189,20 @@ class ContactTableViewController: UITableViewController, UITextFieldDelegate {
         rxSerialTextField.text =  logEntry.rxSerial
         commentsTextView.text = logEntry.comments
         
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        let datePickerView:UIDatePicker = UIDatePicker()
+        
+        datePickerView.datePickerMode = UIDatePickerMode.Date
+        
+        textField.inputView = datePickerView
+        
+        datePickerView.addTarget(self, action: #selector(ContactTableViewController.datePickerValueChanged), forControlEvents: UIControlEvents.ValueChanged)
+        
+      //Todo format date
+        let date = NSDate()
+        textField.text = "\(date)"
     }
     
     func textFieldShouldReturn(userText: UITextField) -> Bool {
