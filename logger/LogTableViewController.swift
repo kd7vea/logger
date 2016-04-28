@@ -36,8 +36,20 @@ class LogTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-//        return entryController.sharedController.logEntry.count
-        return 1
+        return entryController.sharedController.logEntry.count
+    }
+    
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("logCell") as? LogBookTableViewCell
+        let logEntry = entryController.sharedController.logEntry[indexPath.row]
+        cell?.callSignTextField.text = logEntry.callSign
+       // cell?.timeTextField.text = logEntry.qsoTime
+        cell?.frequencyTextField.text = logEntry.frequency
+        cell?.commentsTextField.text = logEntry.comments
+        cell?.updateWithLogEntry(logEntry)
+        return cell!
+        
     }
 
   
