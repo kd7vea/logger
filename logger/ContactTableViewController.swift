@@ -43,13 +43,13 @@ class ContactTableViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet weak var datePicker: UIDatePicker!
     
     @IBAction func textFieldEditing(sender: UITextField) {
-//        let datePickerView:UIDatePicker = UIDatePicker()
-//        
-//        datePickerView.datePickerMode = UIDatePickerMode.Date
-//        
-//        sender.inputView = datePickerView
-//        
-//        datePickerView.addTarget(self, action: #selector(ContactTableViewController.datePickerValueChanged), forControlEvents: UIControlEvents.ValueChanged)
+        let datePickerView:UIDatePicker = UIDatePicker()
+        
+        datePickerView.datePickerMode = UIDatePickerMode.Date
+        
+        sender.inputView = datePickerView
+        
+        datePickerView.addTarget(self, action: #selector(ContactTableViewController.datePickerValueChanged), forControlEvents: UIControlEvents.ValueChanged)
         
     }
    
@@ -147,6 +147,23 @@ class ContactTableViewController: UITableViewController, UITextFieldDelegate {
         tableView.backgroundView = UIImageView(image: UIImage(named: "mapBackground"))
         self.callSignTextField.delegate = self
         self.qsoTimeTextField.delegate = self
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = .MediumStyle
+        dateFormatter.timeStyle = .NoStyle
+        
+        
+      /*  let date = NSDate()
+        let datePickerView:UIDatePicker = UIDatePicker()
+        
+        datePickerView.datePickerMode = UIDatePickerMode.Date
+        
+        self.qsoTimeTextField.inputView = datePickerView
+        
+        datePickerView.addTarget(self, action: #selector(ContactTableViewController.datePickerValueChanged), forControlEvents: UIControlEvents.ValueChanged)
+      */
+
+        //self.qsoTimeTextField.text = "\(date)"
         self.bandTextField.delegate = self
         self.frequencyTextField.delegate = self
         self.contestTextField.delegate = self
@@ -190,21 +207,7 @@ class ContactTableViewController: UITableViewController, UITextFieldDelegate {
         commentsTextView.text = logEntry.comments
         
     }
-    
-    func textFieldDidBeginEditing(textField: UITextField) {
-        let datePickerView:UIDatePicker = UIDatePicker()
-        
-        datePickerView.datePickerMode = UIDatePickerMode.Date
-        
-        textField.inputView = datePickerView
-        
-        datePickerView.addTarget(self, action: #selector(ContactTableViewController.datePickerValueChanged), forControlEvents: UIControlEvents.ValueChanged)
-        
-      //Todo format date
-        let date = NSDate()
-        textField.text = "\(date)"
-    }
-    
+ 
     func textFieldShouldReturn(userText: UITextField) -> Bool {
         userText.resignFirstResponder()
         return true;
