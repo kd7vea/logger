@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		707DC4BB1CC6844E005E3C93 /* NSDate+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707DC4BA1CC6844E005E3C93 /* NSDate+Helpers.swift */; };
+		707DC4BB1CC6844E005E3C93 /* dateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707DC4BA1CC6844E005E3C93 /* dateHelper.swift */; };
 		D072DEA81CA4D867008DA1D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D072DEA71CA4D867008DA1D6 /* AppDelegate.swift */; };
 		D072DEAA1CA4D867008DA1D6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D072DEA91CA4D867008DA1D6 /* ViewController.swift */; };
 		D072DEAD1CA4D867008DA1D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D072DEAB1CA4D867008DA1D6 /* Main.storyboard */; };
@@ -43,7 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		707DC4BA1CC6844E005E3C93 /* NSDate+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Helpers.swift"; sourceTree = "<group>"; };
+		707DC4BA1CC6844E005E3C93 /* dateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dateHelper.swift; sourceTree = "<group>"; };
 		D072DEA41CA4D867008DA1D6 /* logger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = logger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D072DEA71CA4D867008DA1D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D072DEA91CA4D867008DA1D6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -125,7 +125,7 @@
 				D072DED81CA62ADE008DA1D6 /* ContactTableViewController.swift */,
 				D072DEE11CB365EC008DA1D6 /* LogTableViewController.swift */,
 				D0F03DE21CB5F0DD0004E4E7 /* LogBookTableViewCell.swift */,
-				707DC4BA1CC6844E005E3C93 /* NSDate+Helpers.swift */,
+				707DC4BA1CC6844E005E3C93 /* dateHelper.swift */,
 				D072DEDC1CACC30B008DA1D6 /* Model.xcdatamodeld */,
 				D072DEB11CA4D867008DA1D6 /* Assets.xcassets */,
 				D072DEB31CA4D867008DA1D6 /* LaunchScreen.storyboard */,
@@ -288,7 +288,7 @@
 				D072DED91CA62ADE008DA1D6 /* ContactTableViewController.swift in Sources */,
 				D0F03DE61CB5F3910004E4E7 /* LogEntry+CoreDataProperties.swift in Sources */,
 				D072DEE21CB365EC008DA1D6 /* LogTableViewController.swift in Sources */,
-				707DC4BB1CC6844E005E3C93 /* NSDate+Helpers.swift in Sources */,
+				707DC4BB1CC6844E005E3C93 /* dateHelper.swift in Sources */,
 				D0F03DEB1CB5FAA20004E4E7 /* Stack.swift in Sources */,
 				D072DEDE1CACC30B008DA1D6 /* Model.xcdatamodeld in Sources */,
 				D0F03DE31CB5F0DD0004E4E7 /* LogBookTableViewCell.swift in Sources */,

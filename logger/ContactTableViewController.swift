@@ -31,13 +31,11 @@ class ContactTableViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet weak var infoRxTextField: UITextField!
     @IBOutlet weak var rxSerialTextField: UITextField!
     @IBOutlet weak var commentsTextView: UITextView!
-    
+   
     @IBAction func saveButtonTapped(sender: AnyObject) {
         updateLog()
         clearTextFields()
-        
         navigationController?.popViewControllerAnimated(true)
-        
     }
     
     @IBOutlet weak var datePicker: UIDatePicker!
@@ -45,30 +43,36 @@ class ContactTableViewController: UITableViewController, UITextFieldDelegate {
     @IBAction func textFieldEditing(sender: UITextField) {
         let datePickerView:UIDatePicker = UIDatePicker()
         
-        datePickerView.datePickerMode = UIDatePickerMode.Date
+        datePickerView.datePickerMode = UIDatePickerMode.DateAndTime
         
         sender.inputView = datePickerView
         
         datePickerView.addTarget(self, action: #selector(ContactTableViewController.datePickerValueChanged), forControlEvents: UIControlEvents.ValueChanged)
-        
     }
    
-       
-    
-    
-  
     
     func datePickerValueChanged(sender:UIDatePicker) {
         
         let dateFormatter = NSDateFormatter()
         
-        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
-        
-        dateFormatter.timeStyle = NSDateFormatterStyle.NoStyle
+        dateFormatter.dateFormat = "yyyy-MM-dd 'at' HH:mm"
         
         qsoTimeTextField.text = dateFormatter.stringFromDate(sender.date)
         
+        
+        
+        //dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+        
+       //dateFormatter.timeStyle = NSDateFormatterStyle.NoStyle
+        
+       //qsoTimeTextField.text = dateFormatter.stringFromDate(sender.date)
     }
+    
+    
+    
+    
+   
+
     
     func clearTextFields() {
         callSignTextField.text = ""
@@ -146,24 +150,13 @@ class ContactTableViewController: UITableViewController, UITextFieldDelegate {
         super.viewDidLoad()
         tableView.backgroundView = UIImageView(image: UIImage(named: "mapBackground"))
         self.callSignTextField.delegate = self
-        self.qsoTimeTextField.delegate = self
         
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = .MediumStyle
         dateFormatter.timeStyle = .NoStyle
-        
-        
-      /*  let date = NSDate()
-        let datePickerView:UIDatePicker = UIDatePicker()
-        
-        datePickerView.datePickerMode = UIDatePickerMode.Date
-        
-        self.qsoTimeTextField.inputView = datePickerView
-        
-        datePickerView.addTarget(self, action: #selector(ContactTableViewController.datePickerValueChanged), forControlEvents: UIControlEvents.ValueChanged)
-      */
+        textFieldEditing(qsoTimeTextField)
 
-        //self.qsoTimeTextField.text = "\(date)"
+        self.qsoTimeTextField.delegate = self
         self.bandTextField.delegate = self
         self.frequencyTextField.delegate = self
         self.contestTextField.delegate = self

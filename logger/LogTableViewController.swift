@@ -52,7 +52,7 @@ class LogTableViewController: UITableViewController {
         
     }
 
-  
+                                                
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
         

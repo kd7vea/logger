@@ -17,7 +17,7 @@ class LogEntry: NSManagedObject {
         let entity = NSEntityDescription.entityForName("LogEntry", inManagedObjectContext: context)!
         
         self.init(entity: entity, insertIntoManagedObjectContext: context)
-        
+                
         self.callSign = callSign
         self.qsoTime = qsoTime
         self.band = band

@@ -68,7 +68,7 @@ extension NSDate {
     
     static private let formatters = [DateFormatters.dateAndTimeFormatter, DateFormatters.iso8601DateAndTimeFormatter]
     
-    static func fromDateString(dateString:String) -> NSDate? {
+    static func fromDateString(dateString:String) -> NSDate! {
         for formatter in formatters {
             if let date = formatter.dateFromString(dateString) {
                 return date
