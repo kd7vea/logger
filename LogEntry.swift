@@ -12,7 +12,7 @@ import CoreData
 
 class LogEntry: NSManagedObject {
 
-    convenience init(callSign: String, qsoTime: NSDate = NSDate(), band: String? = nil, frequency: String? = nil, contest: String? = nil, arrlSect: String? = nil, arrlClass: String? = nil, mode: String? = nil, power: String? = nil, txRst: String? = nil, rxRst: String? = nil, infoTx: String? = nil, txSerial: String? = nil , infoRx: String? = nil, rxSerial: String? = nil, comments: String? = nil,  context: NSManagedObjectContext = Stack.sharedStack.managedObjectContext)  {
+    convenience init(callSign: String, qsoTime: String, band: String? = nil, frequency: String? = nil, contest: String? = nil, arrlSect: String? = nil, arrlClass: String? = nil, mode: String? = nil, power: String? = nil, txRst: String? = nil, rxRst: String? = nil, infoTx: String? = nil, txSerial: String? = nil , infoRx: String? = nil, rxSerial: String? = nil, comments: String? = nil,  context: NSManagedObjectContext = Stack.sharedStack.managedObjectContext)  {
         
         let entity = NSEntityDescription.entityForName("LogEntry", inManagedObjectContext: context)!
         

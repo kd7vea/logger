@@ -12,7 +12,7 @@
         <attribute name="infoTx" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="mode" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="power" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="qsoTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="qsoTime" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rxRst" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rxSerial" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="txRst" optional="YES" attributeType="String" syncable="YES"/>

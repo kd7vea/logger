@@ -118,7 +118,7 @@ class ContactTableViewController: UITableViewController, UITextFieldDelegate {
      
         if let logEntry = self.logEntry {
             logEntry.callSign = callSign
-            logEntry.qsoTime = NSDate.fromDateString(qsoTime) ?? NSDate()
+            logEntry.qsoTime = qsoTime
             logEntry.band = band
             logEntry.frequency = frequency
             logEntry.contest = contest
@@ -136,7 +136,7 @@ class ContactTableViewController: UITableViewController, UITextFieldDelegate {
             
         } else {
         
-            let newLog = LogEntry(callSign: callSign, qsoTime: NSDate(), band: band, frequency: frequency, contest: contest, arrlSect: arrlSect, arrlClass: arrlClass, mode: mode, power: power, txRst: txRst, rxRst: rxRst, infoTx: infoTx, txSerial: txSerial, infoRx: infoRx, rxSerial: rxSerial, comments: comments)
+            let newLog = LogEntry(callSign: callSign, qsoTime: qsoTime, band: band, frequency: frequency, contest: contest, arrlSect: arrlSect, arrlClass: arrlClass, mode: mode, power: power, txRst: txRst, rxRst: rxRst, infoTx: infoTx, txSerial: txSerial, infoRx: infoRx, rxSerial: rxSerial, comments: comments)
             entryController.sharedController.addLog(newLog)
         }
     }
@@ -183,7 +183,7 @@ class ContactTableViewController: UITableViewController, UITextFieldDelegate {
     func updateWithLogEntry(logEntry: LogEntry) {
         self.logEntry = logEntry
         callSignTextField.text = logEntry.callSign
-        qsoTimeTextField.text = logEntry.qsoTime?.dateAndTimeString
+        qsoTimeTextField.text = logEntry.qsoTime
         bandTextField.text = logEntry.band
         frequencyTextField.text = logEntry.frequency
         contestTextField.text = logEntry.contest

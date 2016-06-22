@@ -25,7 +25,7 @@ extension LogEntry {
     @NSManaged var infoTx: String?
     @NSManaged var mode: String?
     @NSManaged var power: String?
-    @NSManaged var qsoTime: NSDate?
+    @NSManaged var qsoTime: String?
     @NSManaged var rxRst: String?
     @NSManaged var rxSerial: String?
     @NSManaged var txRst: String?

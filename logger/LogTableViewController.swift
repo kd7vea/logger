@@ -44,7 +44,7 @@ class LogTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("logCell") as? LogBookTableViewCell
         let logEntry = entryController.sharedController.logEntry[indexPath.row]
         cell?.callSignTextField.text = logEntry.callSign
-        cell?.timeTextField.text = "\(logEntry.qsoTime)"
+        cell?.timeTextField.text = logEntry.qsoTime
         cell?.frequencyTextField.text = logEntry.frequency
         cell?.commentsTextField.text = logEntry.comments
         cell?.updateWithLogEntry(logEntry)
