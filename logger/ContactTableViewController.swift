@@ -1,3 +1,4 @@
+
 //
 //  ContactTableViewController.swift
 //  logger
@@ -47,7 +48,7 @@ class ContactTableViewController: UITableViewController, UITextFieldDelegate {
         
         sender.inputView = datePickerView
         
-        datePickerView.addTarget(self, action: #selector(ContactTableViewController.datePickerValueChanged), forControlEvents: UIControlEvents.ValueChanged)
+        datePickerView.addTarget(self, action: #selector(ContactTableViewController.datePickerValueChanged), forControlEvents: UIControlEvents.TouchUpInside)
     }
    
     
@@ -58,14 +59,7 @@ class ContactTableViewController: UITableViewController, UITextFieldDelegate {
         dateFormatter.dateFormat = "yyyy-MM-dd 'at' HH:mm"
         
         qsoTimeTextField.text = dateFormatter.stringFromDate(sender.date)
-        
-        
-        
-        //dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
-        
-       //dateFormatter.timeStyle = NSDateFormatterStyle.NoStyle
-        
-       //qsoTimeTextField.text = dateFormatter.stringFromDate(sender.date)
+ 
     }
     
     
@@ -170,10 +164,7 @@ class ContactTableViewController: UITableViewController, UITextFieldDelegate {
         self.txSerialTextField.delegate = self
         self.infoTxTextField.delegate = self
         self.rxSerialTextField.delegate = self
-        
-    }
-    
-    
+}
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
