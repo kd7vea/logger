@@ -48,7 +48,7 @@ class ContactTableViewController: UITableViewController, UITextFieldDelegate {
         
         sender.inputView = datePickerView
         
-        datePickerView.addTarget(self, action: #selector(ContactTableViewController.datePickerValueChanged), forControlEvents: UIControlEvents.TouchUpInside)
+        datePickerView.addTarget(self, action: #selector(ContactTableViewController.datePickerValueChanged), forControlEvents: UIControlEvents.ValueChanged)
     }
    
     
