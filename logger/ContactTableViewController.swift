@@ -63,11 +63,6 @@ class ContactTableViewController: UITableViewController, UITextFieldDelegate {
     }
     
     
-    
-    
-   
-
-    
     func clearTextFields() {
         callSignTextField.text = ""
         qsoTimeTextField.text = ""
@@ -142,6 +137,45 @@ class ContactTableViewController: UITableViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // toolbar for Buttons on Date picker
+        let toolBar = UIToolbar(frame: CGRectMake(0, self.view.frame.size.height/6, self.view.frame.size.width, 40.0))
+        
+        toolBar.layer.position = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height-20.0)
+        
+        toolBar.barStyle = UIBarStyle.BlackTranslucent
+        
+        toolBar.tintColor = UIColor.whiteColor()
+        
+        toolBar.backgroundColor = UIColor.blackColor()
+        
+        
+        let nowBtn = UIBarButtonItem(title: "NOW", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(ContactTableViewController.tappedToolBarBtn))
+        
+        let okBarBtn = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: #selector(ContactTableViewController.donePressed))
+        
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: self, action: nil)
+        
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width / 3, height: self.view.frame.size.height))
+        
+        label.font = UIFont(name: "Helvetica", size: 12)
+        
+        label.backgroundColor = UIColor.clearColor()
+        
+        label.textColor = UIColor.whiteColor()
+        
+        label.text = "Select a due date"
+        
+        label.textAlignment = NSTextAlignment.Center
+        
+        let textBtn = UIBarButtonItem(customView: label)
+        
+        toolBar.setItems([nowBtn,flexSpace,textBtn,flexSpace,okBarBtn], animated: true)
+        
+        qsoTimeTextField.inputAccessoryView = toolBar
+
+        
+        // log input setup
         tableView.backgroundView = UIImageView(image: UIImage(named: "mapBackground"))
         self.callSignTextField.delegate = self
         
@@ -170,6 +204,33 @@ class ContactTableViewController: UITableViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func donePressed(sender: UIBarButtonItem) {
+        
+        qsoTimeTextField.resignFirstResponder()
+        
+    }
+    
+    func tappedToolBarBtn(sender: UIBarButtonItem) {
+        
+        let dateformatter = NSDateFormatter()
+        
+        dateFormatter.dateFormat = "yyyy-MM-dd 'at' HH:mm"
+        
+        //dateformatter.dateStyle = NSDateFormatterStyle.MediumStyle
+        
+        //dateformatter.timeStyle = NSDateFormatterStyle.NoStyle
+        
+        qsoTimeTextField.text = dateformatter.stringFromDate(NSDate())
+        
+        qsoTimeTextField.resignFirstResponder()
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+
+    
     
     func updateWithLogEntry(logEntry: LogEntry) {
         self.logEntry = logEntry
