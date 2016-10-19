@@ -13,7 +13,7 @@ import CoreData
 class ContactTableViewController: UITableViewController, UITextFieldDelegate {
 
     var logEntry: LogEntry?
-    let dateFormatter = NSDateFormatter()
+    let dateFormatter = DateFormatter()
 
     
     @IBOutlet weak var callSignTextField: UITextField!
@@ -33,32 +33,32 @@ class ContactTableViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet weak var rxSerialTextField: UITextField!
     @IBOutlet weak var commentsTextView: UITextView!
    
-    @IBAction func saveButtonTapped(sender: AnyObject) {
+    @IBAction func saveButtonTapped(_ sender: AnyObject) {
         updateLog()
         clearTextFields()
-        navigationController?.popViewControllerAnimated(true)
+        navigationController?.popViewController(animated: true)
     }
     
     @IBOutlet weak var datePicker: UIDatePicker!
     
-    @IBAction func textFieldEditing(sender: UITextField) {
+    @IBAction func textFieldEditing(_ sender: UITextField) {
         let datePickerView:UIDatePicker = UIDatePicker()
         
-        datePickerView.datePickerMode = UIDatePickerMode.DateAndTime
+        datePickerView.datePickerMode = UIDatePickerMode.dateAndTime
         
         sender.inputView = datePickerView
         
-        datePickerView.addTarget(self, action: #selector(ContactTableViewController.datePickerValueChanged), forControlEvents: UIControlEvents.ValueChanged)
+        datePickerView.addTarget(self, action: #selector(ContactTableViewController.datePickerValueChanged), for: UIControlEvents.valueChanged)
     }
    
     
-    func datePickerValueChanged(sender:UIDatePicker) {
+    func datePickerValueChanged(_ sender:UIDatePicker) {
         
-        let dateFormatter = NSDateFormatter()
+        let dateFormatter = DateFormatter()
         
         dateFormatter.dateFormat = "yyyy-MM-dd 'at' HH:mm"
         
-        qsoTimeTextField.text = dateFormatter.stringFromDate(sender.date)
+        qsoTimeTextField.text = dateFormatter.string(from: sender.date)
  
     }
     
@@ -139,34 +139,34 @@ class ContactTableViewController: UITableViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         // toolbar for Buttons on Date picker
-        let toolBar = UIToolbar(frame: CGRectMake(0, self.view.frame.size.height/6, self.view.frame.size.width, 40.0))
+        let toolBar = UIToolbar(frame: CGRect(x: 0, y: self.view.frame.size.height/6, width: self.view.frame.size.width, height: 40.0))
         
         toolBar.layer.position = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height-20.0)
         
-        toolBar.barStyle = UIBarStyle.BlackTranslucent
+        toolBar.barStyle = UIBarStyle.blackTranslucent
         
-        toolBar.tintColor = UIColor.whiteColor()
+        toolBar.tintColor = UIColor.white
         
-        toolBar.backgroundColor = UIColor.blackColor()
+        toolBar.backgroundColor = UIColor.black
         
         
-        let nowBtn = UIBarButtonItem(title: "NOW", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(ContactTableViewController.tappedToolBarBtn))
+        let nowBtn = UIBarButtonItem(title: "NOW", style: UIBarButtonItemStyle.plain, target: self, action: #selector(ContactTableViewController.tappedToolBarBtn))
         
-        let okBarBtn = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: #selector(ContactTableViewController.donePressed))
+        let okBarBtn = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(ContactTableViewController.donePressed))
         
-        let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: self, action: nil)
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: self, action: nil)
         
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width / 3, height: self.view.frame.size.height))
         
         label.font = UIFont(name: "Helvetica", size: 12)
         
-        label.backgroundColor = UIColor.clearColor()
+        label.backgroundColor = UIColor.clear
         
-        label.textColor = UIColor.whiteColor()
+        label.textColor = UIColor.white
         
         label.text = "Select a due date"
         
-        label.textAlignment = NSTextAlignment.Center
+        label.textAlignment = NSTextAlignment.center
         
         let textBtn = UIBarButtonItem(customView: label)
         
@@ -179,9 +179,9 @@ class ContactTableViewController: UITableViewController, UITextFieldDelegate {
         tableView.backgroundView = UIImageView(image: UIImage(named: "mapBackground"))
         self.callSignTextField.delegate = self
         
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateStyle = .MediumStyle
-        dateFormatter.timeStyle = .NoStyle
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
         textFieldEditing(qsoTimeTextField)
 
         self.qsoTimeTextField.delegate = self
@@ -205,15 +205,15 @@ class ContactTableViewController: UITableViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func donePressed(sender: UIBarButtonItem) {
+    func donePressed(_ sender: UIBarButtonItem) {
         
         qsoTimeTextField.resignFirstResponder()
         
     }
     
-    func tappedToolBarBtn(sender: UIBarButtonItem) {
+    func tappedToolBarBtn(_ sender: UIBarButtonItem) {
         
-        let dateformatter = NSDateFormatter()
+        let dateformatter = DateFormatter()
         
         dateFormatter.dateFormat = "yyyy-MM-dd 'at' HH:mm"
         
@@ -221,18 +221,18 @@ class ContactTableViewController: UITableViewController, UITextFieldDelegate {
         
         //dateformatter.timeStyle = NSDateFormatterStyle.NoStyle
         
-        qsoTimeTextField.text = dateformatter.stringFromDate(NSDate())
+        qsoTimeTextField.text = dateformatter.string(from: Date())
         
         qsoTimeTextField.resignFirstResponder()
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
 
     
     
-    func updateWithLogEntry(logEntry: LogEntry) {
+    func updateWithLogEntry(_ logEntry: LogEntry) {
         self.logEntry = logEntry
         callSignTextField.text = logEntry.callSign
         qsoTimeTextField.text = logEntry.qsoTime
@@ -253,13 +253,13 @@ class ContactTableViewController: UITableViewController, UITextFieldDelegate {
         
     }
  
-    func textFieldShouldReturn(userText: UITextField) -> Bool {
+    func textFieldShouldReturn(_ userText: UITextField) -> Bool {
         userText.resignFirstResponder()
         return true;
     }
     
     
-    func textViewShouldReturn(userText: UITextView) -> Bool {
+    func textViewShouldReturn(_ userText: UITextView) -> Bool {
         userText.resignFirstResponder()
         return true;
     }
@@ -311,7 +311,7 @@ class ContactTableViewController: UITableViewController, UITextFieldDelegate {
 }
 extension LogTableViewController: LogTableViewCellDelegate {
     
-    func saveButtonTapped(sender: LogBookTableViewCell) {
+    func saveButtonTapped(_ sender: LogBookTableViewCell) {
         tableView.reloadData()
     }
 }

@@ -12,30 +12,30 @@ import CoreData
 
 class entryController {
     
-    private let LogKey = "logs"
+    fileprivate let LogKey = "logs"
     
     static let sharedController = entryController()
     
        
     var logEntry:[LogEntry] {
         
-        let request = NSFetchRequest(entityName: "LogEntry")
+        let request:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "LogEntry")
         
         do {
-            return try Stack.sharedStack.managedObjectContext.executeFetchRequest(request) as! [LogEntry]
+            return try Stack.sharedStack.managedObjectContext.fetch(request) as! [LogEntry]
         } catch {
             return []
         }
     }
     
-    func addLog(logEntry: LogEntry) {
+    func addLog(_ logEntry: LogEntry) {
         
         saveToPersistentStorage()
     }
     
-    func removeLogEntry(logEntry: LogEntry) {
+    func removeLogEntry(_ logEntry: LogEntry) {
         
-        logEntry.managedObjectContext?.deleteObject(logEntry)
+        logEntry.managedObjectContext?.delete(logEntry)
         saveToPersistentStorage()
     }
     
@@ -50,10 +50,10 @@ class entryController {
         }
     }
     
-    func filePath(key: String) -> String {
-        let directorySearchResults = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory,NSSearchPathDomainMask.AllDomainsMask, true)
-        let documentsPath: AnyObject = directorySearchResults[0]
-        let entriesPath = documentsPath.stringByAppendingString("/\(key).plist")
+    func filePath(_ key: String) -> String {
+        let directorySearchResults = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory,FileManager.SearchPathDomainMask.allDomainsMask, true)
+        let documentsPath: AnyObject = directorySearchResults[0] as AnyObject
+        let entriesPath = documentsPath.appending("/\(key).plist")
         
         return entriesPath
     }

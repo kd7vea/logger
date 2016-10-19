@@ -12,7 +12,7 @@ import UIKit
 class LogTableViewController: UITableViewController {
 
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
   
@@ -22,7 +22,7 @@ class LogTableViewController: UITableViewController {
         super.viewDidLoad()
     }
  
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         
         tableView.reloadData()
     }
@@ -34,15 +34,15 @@ class LogTableViewController: UITableViewController {
     
     // MARK: - Table view data source
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return entryController.sharedController.logEntry.count
     }
     
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("logCell") as? LogBookTableViewCell
-        let logEntry = entryController.sharedController.logEntry[indexPath.row]
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "logCell") as? LogBookTableViewCell
+        let logEntry = entryController.sharedController.logEntry[(indexPath as NSIndexPath).row]
         cell?.callSignTextField.text = logEntry.callSign
         cell?.timeTextField.text = logEntry.qsoTime
         cell?.frequencyTextField.text = logEntry.frequency
@@ -53,29 +53,29 @@ class LogTableViewController: UITableViewController {
     }
 
                                                 
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
         
-        let logEntry = entryController.sharedController.logEntry[indexPath.row]
+        let logEntry = entryController.sharedController.logEntry[(indexPath as NSIndexPath).row]
         entryController.sharedController.removeLogEntry(logEntry)
-        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
 
  
  
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "viewLogDetail" {
             
-            let destinationViewController = segue.destinationViewController as? ContactTableViewController
+            let destinationViewController = segue.destination as? ContactTableViewController
             
             if let ContactTableViewController = destinationViewController {
                 
                 // force the destination view controller to draw all subviews for updating
                 _ = ContactTableViewController.view
                 
-                if let selectedRow = tableView.indexPathForSelectedRow?.row {
+                if let selectedRow = (tableView.indexPathForSelectedRow as NSIndexPath?)?.row {
                     ContactTableViewController.updateWithLogEntry(entryController.sharedController.logEntry[selectedRow])
                 }
             }

@@ -14,9 +14,9 @@ class LogEntry: NSManagedObject {
 
     convenience init(callSign: String, qsoTime: String, band: String? = nil, frequency: String? = nil, contest: String? = nil, arrlSect: String? = nil, arrlClass: String? = nil, mode: String? = nil, power: String? = nil, txRst: String? = nil, rxRst: String? = nil, infoTx: String? = nil, txSerial: String? = nil , infoRx: String? = nil, rxSerial: String? = nil, comments: String? = nil,  context: NSManagedObjectContext = Stack.sharedStack.managedObjectContext)  {
         
-        let entity = NSEntityDescription.entityForName("LogEntry", inManagedObjectContext: context)!
+        let entity = NSEntityDescription.entity(forEntityName: "LogEntry", in: context)!
         
-        self.init(entity: entity, insertIntoManagedObjectContext: context)
+        self.init(entity: entity, insertInto: context)
                 
         self.callSign = callSign
         self.qsoTime = qsoTime

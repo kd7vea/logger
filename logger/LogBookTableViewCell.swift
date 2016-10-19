@@ -25,11 +25,11 @@ class LogBookTableViewCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
     
-    func updateWithLogEntry(logEntry: LogEntry) {
+    func updateWithLogEntry(_ logEntry: LogEntry) {
         self.logEntry = logEntry
     }
     
@@ -38,7 +38,7 @@ class LogBookTableViewCell: UITableViewCell {
 
 protocol LogTableViewCellDelegate {
     
-    func saveButtonTapped(sender: LogBookTableViewCell)
+    func saveButtonTapped(_ sender: LogBookTableViewCell)
 }
 
 extension LogBookTableViewCell {
