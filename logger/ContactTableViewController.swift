@@ -36,7 +36,7 @@ class ContactTableViewController: UITableViewController, UITextFieldDelegate {
     @IBAction func saveButtonTapped(_ sender: AnyObject) {
         updateLog()
         clearTextFields()
-        navigationController?.popViewController(animated: true)
+    //    navigationController?.popViewController(animated: true)
     }
     
     @IBOutlet weak var datePicker: UIDatePicker!
@@ -176,7 +176,7 @@ class ContactTableViewController: UITableViewController, UITextFieldDelegate {
 
         
         // log input setup
-        tableView.backgroundView = UIImageView(image: UIImage(named: "mapBackground"))
+       // tableView.backgroundView = UIImageView(image: UIImage(named: "mapBackground"))
         self.callSignTextField.delegate = self
         
         let dateFormatter = DateFormatter()
@@ -212,16 +212,12 @@ class ContactTableViewController: UITableViewController, UITextFieldDelegate {
     }
     
     func tappedToolBarBtn(_ sender: UIBarButtonItem) {
-        
-        let dateformatter = DateFormatter()
+      
+        let dateFormatter = DateFormatter()
         
         dateFormatter.dateFormat = "yyyy-MM-dd 'at' HH:mm"
         
-        //dateformatter.dateStyle = NSDateFormatterStyle.MediumStyle
-        
-        //dateformatter.timeStyle = NSDateFormatterStyle.NoStyle
-        
-        qsoTimeTextField.text = dateformatter.string(from: Date())
+        qsoTimeTextField.text = dateFormatter.string(from: Date())
         
         qsoTimeTextField.resignFirstResponder()
     }
