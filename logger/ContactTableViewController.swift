@@ -36,6 +36,7 @@ class ContactTableViewController: UITableViewController, UITextFieldDelegate {
     @IBAction func saveButtonTapped(_ sender: AnyObject) {
         updateLog()
         clearTextFields()
+        self.view.endEditing(true)
     //    navigationController?.popViewController(animated: true)
     }
     
@@ -62,6 +63,12 @@ class ContactTableViewController: UITableViewController, UITextFieldDelegate {
  
     }
     
+    func doneButton_Clicked(_ sender:ContactTableViewController)
+    {
+    self.view.endEditing(true)
+    }
+    
+    
     
     func clearTextFields() {
         callSignTextField.text = ""
@@ -81,7 +88,6 @@ class ContactTableViewController: UITableViewController, UITextFieldDelegate {
         rxSerialTextField.text = ""
         commentsTextView.text = ""
     }
-
     
     
     func updateLog() {
@@ -130,7 +136,15 @@ class ContactTableViewController: UITableViewController, UITextFieldDelegate {
         }
     }
     
+    //Add done button to numeric pad keyboard
+    let toolbarDone = UIToolbar.init()
+    toolbarDone.sizeToFit()
+    let barBtnDone = UIBarButtonItem.init(barButtonSystemItem: UIBarButtonSystemItem.done,
+                                          target: self,action:#selector(ContactTableViewController.doneButton_Clicked(_:)))
     
+    toolbarDone.items = [barBtnDone] // You can even add cancel button too
+    frequencyTextField.inputAccessoryView = toolbarDone
+
     
     
    // var calls = [String]()
@@ -138,6 +152,7 @@ class ContactTableViewController: UITableViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+               
         // toolbar for Buttons on Date picker
         let toolBar = UIToolbar(frame: CGRect(x: 0, y: self.view.frame.size.height/6, width: self.view.frame.size.width, height: 40.0))
         
@@ -164,7 +179,7 @@ class ContactTableViewController: UITableViewController, UITextFieldDelegate {
         
         label.textColor = UIColor.white
         
-        label.text = "Select a due date"
+        label.text = "QSO time"
         
         label.textAlignment = NSTextAlignment.center
         
@@ -174,9 +189,12 @@ class ContactTableViewController: UITableViewController, UITextFieldDelegate {
         
         qsoTimeTextField.inputAccessoryView = toolBar
 
-        
+
+
+     
         // log input setup
        // tableView.backgroundView = UIImageView(image: UIImage(named: "mapBackground"))
+                
         self.callSignTextField.delegate = self
         
         let dateFormatter = DateFormatter()
