@@ -37,28 +37,21 @@ class ContactTableViewController: UITableViewController, UITextFieldDelegate {
         updateLog()
         clearTextFields()
         self.view.endEditing(true)
-    //    navigationController?.popViewController(animated: true)
     }
     
     @IBOutlet weak var datePicker: UIDatePicker!
     
     @IBAction func textFieldEditing(_ sender: UITextField) {
         let datePickerView:UIDatePicker = UIDatePicker()
-        
         datePickerView.datePickerMode = UIDatePickerMode.dateAndTime
-        
         sender.inputView = datePickerView
-        
         datePickerView.addTarget(self, action: #selector(ContactTableViewController.datePickerValueChanged), for: UIControlEvents.valueChanged)
     }
    
     
     func datePickerValueChanged(_ sender:UIDatePicker) {
-        
         let dateFormatter = DateFormatter()
-        
         dateFormatter.dateFormat = "yyyy-MM-dd 'at' HH:mm"
-        
         qsoTimeTextField.text = dateFormatter.string(from: sender.date)
  
     }
@@ -136,65 +129,47 @@ class ContactTableViewController: UITableViewController, UITextFieldDelegate {
         }
     }
     
-    //Add done button to numeric pad keyboard
-    let toolbarDone = UIToolbar.init()
-    toolbarDone.sizeToFit()
-    let barBtnDone = UIBarButtonItem.init(barButtonSystemItem: UIBarButtonSystemItem.done,
-                                          target: self,action:#selector(ContactTableViewController.doneButton_Clicked(_:)))
-    
-    toolbarDone.items = [barBtnDone] // You can even add cancel button too
-    frequencyTextField.inputAccessoryView = toolbarDone
-
-    
-    
-   // var calls = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-               
-        // toolbar for Buttons on Date picker
+    // toolbar for Buttons on Date picker
         let toolBar = UIToolbar(frame: CGRect(x: 0, y: self.view.frame.size.height/6, width: self.view.frame.size.width, height: 40.0))
-        
         toolBar.layer.position = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height-20.0)
-        
         toolBar.barStyle = UIBarStyle.blackTranslucent
-        
         toolBar.tintColor = UIColor.white
-        
         toolBar.backgroundColor = UIColor.black
         
-        
         let nowBtn = UIBarButtonItem(title: "NOW", style: UIBarButtonItemStyle.plain, target: self, action: #selector(ContactTableViewController.tappedToolBarBtn))
-        
         let okBarBtn = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(ContactTableViewController.donePressed))
-        
         let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: self, action: nil)
-        
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width / 3, height: self.view.frame.size.height))
-        
         label.font = UIFont(name: "Helvetica", size: 12)
-        
         label.backgroundColor = UIColor.clear
-        
         label.textColor = UIColor.white
-        
         label.text = "QSO time"
-        
         label.textAlignment = NSTextAlignment.center
-        
         let textBtn = UIBarButtonItem(customView: label)
-        
         toolBar.setItems([nowBtn,flexSpace,textBtn,flexSpace,okBarBtn], animated: true)
-        
         qsoTimeTextField.inputAccessoryView = toolBar
 
+    //number pad  done button
+        let doneToolBar = UIToolbar(frame: CGRect(x: 0, y: self.view.frame.size.height/6, width: self.view.frame.size.width, height: 40.0))
+        doneToolBar.layer.position = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height-20.0)
+        doneToolBar.barStyle = UIBarStyle.blackTranslucent
+        doneToolBar.tintColor = UIColor.white
+        doneToolBar.backgroundColor = UIColor.black
+        let doneBtn = UIBarButtonItem(title: "DONE", style: UIBarButtonItemStyle.plain, target: self, action: #selector(ContactTableViewController.numberDonePressed))
+        doneToolBar.setItems([doneBtn], animated: true)
+        frequencyTextField.inputAccessoryView = doneToolBar
+        powerTextField.inputAccessoryView = doneToolBar
+        txRstTextField.inputAccessoryView = doneToolBar
+        rxRstTextField.inputAccessoryView = doneToolBar
 
-
+        
      
-        // log input setup
-       // tableView.backgroundView = UIImageView(image: UIImage(named: "mapBackground"))
-                
+    // log input setup
+        
         self.callSignTextField.delegate = self
         
         let dateFormatter = DateFormatter()
@@ -223,20 +198,22 @@ class ContactTableViewController: UITableViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func donePressed(_ sender: UIBarButtonItem) {
-        
-        qsoTimeTextField.resignFirstResponder()
-        
+    func numberDonePressed(_ sender :UIBarButtonItem){
+        frequencyTextField.resignFirstResponder()
+        powerTextField.resignFirstResponder()
+        txRstTextField.resignFirstResponder()
+        rxRstTextField.resignFirstResponder()
     }
     
+    
+    func donePressed(_ sender: UIBarButtonItem) {
+        qsoTimeTextField.resignFirstResponder()
+        }
+    
     func tappedToolBarBtn(_ sender: UIBarButtonItem) {
-      
         let dateFormatter = DateFormatter()
-        
         dateFormatter.dateFormat = "yyyy-MM-dd 'at' HH:mm"
-        
         qsoTimeTextField.text = dateFormatter.string(from: Date())
-        
         qsoTimeTextField.resignFirstResponder()
     }
     

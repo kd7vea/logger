@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		707DC4BB1CC6844E005E3C93 /* dateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707DC4BA1CC6844E005E3C93 /* dateHelper.swift */; };
+		D00BBD471DE3E163008D3200 /* phone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D00BBD451DE3E163008D3200 /* phone.storyboard */; };
 		D072DEA81CA4D867008DA1D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D072DEA71CA4D867008DA1D6 /* AppDelegate.swift */; };
 		D072DEAA1CA4D867008DA1D6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D072DEA91CA4D867008DA1D6 /* ViewController.swift */; };
 		D072DEAD1CA4D867008DA1D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D072DEAB1CA4D867008DA1D6 /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		707DC4BA1CC6844E005E3C93 /* dateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dateHelper.swift; sourceTree = "<group>"; };
+		D00BBD461DE3E163008D3200 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/phone.storyboard; sourceTree = "<group>"; };
 		D072DEA41CA4D867008DA1D6 /* logger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = logger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D072DEA71CA4D867008DA1D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D072DEA91CA4D867008DA1D6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				D072DEA71CA4D867008DA1D6 /* AppDelegate.swift */,
 				D072DEA91CA4D867008DA1D6 /* ViewController.swift */,
 				D072DEAB1CA4D867008DA1D6 /* Main.storyboard */,
+				D00BBD451DE3E163008D3200 /* phone.storyboard */,
 				D0F03DE41CB5F3910004E4E7 /* LogEntry+CoreDataProperties.swift */,
 				D0F03DEA1CB5FAA20004E4E7 /* Stack.swift */,
 				D0F03DE51CB5F3910004E4E7 /* LogEntry.swift */,
@@ -261,6 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D072DEB51CA4D867008DA1D6 /* LaunchScreen.storyboard in Resources */,
+				D00BBD471DE3E163008D3200 /* phone.storyboard in Resources */,
 				D072DEB21CA4D867008DA1D6 /* Assets.xcassets in Resources */,
 				D072DEAD1CA4D867008DA1D6 /* Main.storyboard in Resources */,
 			);
@@ -333,6 +337,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		D00BBD451DE3E163008D3200 /* phone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D00BBD461DE3E163008D3200 /* Base */,
+			);
+			name = phone.storyboard;
+			sourceTree = "<group>";
+		};
 		D072DEAB1CA4D867008DA1D6 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
