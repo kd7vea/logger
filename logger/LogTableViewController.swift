@@ -65,22 +65,16 @@ class LogTableViewController: UITableViewController {
  
  
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "viewLogDetail" {
-            
-            let destinationViewController = segue.destination as? ContactTableViewController
-            
-            if let ContactTableViewController = destinationViewController {
+       
+        if let nav = segue.destination as? UINavigationController, let contactsVC = nav.viewControllers.first as? ContactTableViewController {
+            _ = contactsVC.view
                 
-                // force the destination view controller to draw all subviews for updating
-                _ = ContactTableViewController.view
-                
-                if let selectedRow = (tableView.indexPathForSelectedRow as NSIndexPath?)?.row {
-                    ContactTableViewController.updateWithLogEntry(entryController.sharedController.logEntry[selectedRow])
+                if let selectedRow = tableView.indexPathForSelectedRow?.row{
+                    contactsVC.updateWithLogEntry(entryController.sharedController.logEntry[selectedRow])
                 }
             }
         }
-    }
+    
 
 
   

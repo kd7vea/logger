@@ -519,10 +519,10 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="464-WX-amc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="551" y="972"/>
+            <point key="canvasLocation" x="667" y="1045"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vZb-Ag-R1O"/>
+        <segue reference="y7c-B1-gGg"/>
     </inferredMetricsTieBreakers>
 </document>

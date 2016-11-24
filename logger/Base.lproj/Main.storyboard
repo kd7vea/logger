@@ -89,7 +89,7 @@
                                     <outlet property="commentsTextField" destination="yU7-mn-V8e" id="8sR-fR-cVF"/>
                                     <outlet property="frequencyTextField" destination="WD7-pR-DS5" id="qDN-cL-zkr"/>
                                     <outlet property="timeTextField" destination="FLz-vk-0hF" id="0TJ-3f-ouX"/>
-                                    <segue destination="5NH-9M-aFJ" kind="show" identifier="viewLogDetail" id="y7c-B1-gGg"/>
+                                    <segue destination="5NH-9M-aFJ" kind="show" id="kIx-hv-r3g"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -103,7 +103,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Log Entry" id="6pi-MO-GeN">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <segue destination="5NH-9M-aFJ" kind="show" id="bg9-2h-MYv"/>
+                                <segue destination="5NH-9M-aFJ" kind="show" identifier="viewLogDetail" id="bg9-2h-MYv"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -674,10 +674,10 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="464-WX-amc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="551" y="972"/>
+            <point key="canvasLocation" x="694" y="1071"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vZb-Ag-R1O"/>
+        <segue reference="bg9-2h-MYv"/>
     </inferredMetricsTieBreakers>
 </document>
