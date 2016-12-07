@@ -10,7 +10,7 @@
 import UIKit
 import CoreData
 
-class ContactTableViewController: UITableViewController, UITextFieldDelegate {
+class ContactTableViewController: UITableViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource{
 
     var logEntry: LogEntry?
     let dateFormatter = DateFormatter()
@@ -47,21 +47,12 @@ class ContactTableViewController: UITableViewController, UITextFieldDelegate {
         sender.inputView = datePickerView
         datePickerView.addTarget(self, action: #selector(ContactTableViewController.datePickerValueChanged), for: UIControlEvents.valueChanged)
     }
-   
     
     func datePickerValueChanged(_ sender:UIDatePicker) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd 'at' HH:mm"
         qsoTimeTextField.text = dateFormatter.string(from: sender.date)
- 
     }
-    
-    func doneButton_Clicked(_ sender:ContactTableViewController)
-    {
-    self.view.endEditing(true)
-    }
-    
-    
     
     func clearTextFields() {
         callSignTextField.text = ""
@@ -129,22 +120,31 @@ class ContactTableViewController: UITableViewController, UITextFieldDelegate {
         }
     }
     
+    var bandOption = ["2190 M", "636 M", "560 M", "160 M", "80 M", "60 M", "40 M","30 M", "20 M", "17 M", "15 M", "12 M", "10 M", "6 M", "4 M" , "2 M", "1.25", "70 CM", "33 CM", "23 CM", "13 CM", "9 CM", "6 CM", "3 CM", "1.25 CM", "6 MM", "4 MM", "2.5 MM", "2 MM", "1 MM"]
+    
+    var modeOptions = ["SSB","CW"]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+       
+        let bandPickerView = UIPickerView()
+        bandPickerView.delegate = self
+        bandTextField.inputView = bandPickerView
+        
     // toolbar for Buttons on Date picker
         let toolBar = UIToolbar(frame: CGRect(x: 0, y: self.view.frame.size.height/6, width: self.view.frame.size.width, height: 40.0))
         toolBar.layer.position = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height-20.0)
-        toolBar.barStyle = UIBarStyle.blackTranslucent
+        toolBar.barStyle = UIBarStyle.default
         toolBar.tintColor = UIColor.white
-        toolBar.backgroundColor = UIColor.black
+        toolBar.backgroundColor = UIColor.darkGray
         
         let nowBtn = UIBarButtonItem(title: "NOW", style: UIBarButtonItemStyle.plain, target: self, action: #selector(ContactTableViewController.tappedToolBarBtn))
-        let okBarBtn = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(ContactTableViewController.donePressed))
+        let okBarBtn = UIBarButtonItem(title: "CLOSE", style: UIBarButtonItemStyle.plain, target: self, action: #selector(ContactTableViewController.donePressed))
         let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: self, action: nil)
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width / 3, height: self.view.frame.size.height))
-        label.font = UIFont(name: "Helvetica", size: 12)
+        label.font = UIFont(name: "Helvetica", size: 24)
         label.backgroundColor = UIColor.clear
         label.textColor = UIColor.white
         label.text = "QSO time"
@@ -156,9 +156,9 @@ class ContactTableViewController: UITableViewController, UITextFieldDelegate {
     //number pad  done button
         let doneToolBar = UIToolbar(frame: CGRect(x: 0, y: self.view.frame.size.height/6, width: self.view.frame.size.width, height: 40.0))
         doneToolBar.layer.position = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height-20.0)
-        doneToolBar.barStyle = UIBarStyle.blackTranslucent
+        doneToolBar.barStyle = UIBarStyle.default
         doneToolBar.tintColor = UIColor.white
-        doneToolBar.backgroundColor = UIColor.black
+        doneToolBar.backgroundColor = UIColor.darkGray
         let doneBtn = UIBarButtonItem(title: "DONE", style: UIBarButtonItemStyle.plain, target: self, action: #selector(ContactTableViewController.numberDonePressed))
         doneToolBar.setItems([doneBtn], animated: true)
         frequencyTextField.inputAccessoryView = doneToolBar
@@ -166,7 +166,15 @@ class ContactTableViewController: UITableViewController, UITextFieldDelegate {
         txRstTextField.inputAccessoryView = doneToolBar
         rxRstTextField.inputAccessoryView = doneToolBar
 
-        
+    //PickerView select buttons
+        let pickerToolBar = UIToolbar(frame: CGRect(x: 0, y: self.view.frame.size.height/6, width: self.view.frame.size.width, height: 40.0))
+        pickerToolBar.layer.position = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height-20.0)
+        pickerToolBar.barStyle = UIBarStyle.default
+        pickerToolBar.tintColor =  UIColor.white
+        pickerToolBar.backgroundColor = UIColor.darkGray
+        let selectButton = UIBarButtonItem(title: "SELECT", style: UIBarButtonItemStyle.plain, target: self, action: #selector(ContactTableViewController.selectPressed))
+        pickerToolBar.setItems([selectButton], animated: true)
+        bandTextField.inputAccessoryView = pickerToolBar
      
     // log input setup
         
@@ -195,9 +203,27 @@ class ContactTableViewController: UITableViewController, UITextFieldDelegate {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
+    //BandPickerView Functions
+        func numberOfComponents(in pickerView: UIPickerView) -> Int {
+            return 1
+        }
+
+        func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+            return bandOption.count
+        }
+    
+        func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+            return bandOption[row]
+        }
+    
+        func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+            bandTextField.text = bandOption[row]
+        }
+
+       
+    //Done Button for Number Pads to close the Keypad
     func numberDonePressed(_ sender :UIBarButtonItem){
         frequencyTextField.resignFirstResponder()
         powerTextField.resignFirstResponder()
@@ -205,11 +231,17 @@ class ContactTableViewController: UITableViewController, UITextFieldDelegate {
         rxRstTextField.resignFirstResponder()
     }
     
+    //Select Button for Pickers to close the picker view after selection is made
+    func selectPressed(_ sender :UIBarButtonItem){
+        bandTextField.resignFirstResponder()
+    }
     
+    //closes the DatePicker
     func donePressed(_ sender: UIBarButtonItem) {
         qsoTimeTextField.resignFirstResponder()
         }
     
+   // Selects theh date from the picker
     func tappedToolBarBtn(_ sender: UIBarButtonItem) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd 'at' HH:mm"
@@ -217,12 +249,13 @@ class ContactTableViewController: UITableViewController, UITextFieldDelegate {
         qsoTimeTextField.resignFirstResponder()
     }
     
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
 
     
-    
+    //Sends the data from the text fields to the Log in core data
     func updateWithLogEntry(_ logEntry: LogEntry) {
         self.logEntry = logEntry
         callSignTextField.text = logEntry.callSign
@@ -243,7 +276,7 @@ class ContactTableViewController: UITableViewController, UITextFieldDelegate {
         commentsTextView.text = logEntry.comments
         
     }
- 
+    
     func textFieldShouldReturn(_ userText: UITextField) -> Bool {
         userText.resignFirstResponder()
         return true;
